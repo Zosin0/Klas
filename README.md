@@ -1,2 +1,2 @@
 # Klas
-Uma aplicação que te ajuda a estudar programção
+Uma aplicação que te ajuda a estudar programação
