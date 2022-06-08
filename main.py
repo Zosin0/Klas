@@ -9,4 +9,8 @@ app = Flask(__name__)
 def menu():
   return render_template('home.html')
 
+@app.route('/times')
+def times():
+  return render_template('times.html')
+
 app.run(debug=True)

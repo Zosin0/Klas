@@ -7,9 +7,16 @@
     <link href="static/style.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <script>
+  $( function() {
+    $( "#draggable" ).draggable();
+  } );
+  </script>
   </head>
   <body>
     <header>
@@ -23,7 +30,18 @@
           <a href="#"><i class="fas fa-headset contact"></i> Contato</a>
         </nav>
       </div>
+
     </header>
+    <div id="time">
+      Nosso time é composto por:
+    </div>
+      <div id="draggable" class="ui-widget-content">
+        <p>Lucas Zoser Nunes Costa</p>
+        <p>Leonardo Areias Rodovalho</p>
+        <p>Leonardo Benttes Almeida Placido dos Santos</p>
+        <p>Pedro Henrique Moreira da Silva</p>
+        <p>Matheus Soares Accioly</p>
+      </div>
 
 
     <script type="text/javascript">
