@@ -38,4 +38,21 @@ def times():
     return render_template('times.html', imagens=imagens)
 
 
+@app.route('/plataformas')
+def plataformas():
+    mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+    comando = 'select * from tbPlataformas;'
+    cs = mysql.consultar(comando, [])
+    dados = ''
+
+    for (idt, nome, desc, link, path) in cs:
+        dados += "<TR>\n"
+        dados += "<TD>" + nome + "</TD>\n"
+        dados += "<TD>" + desc + "</TD>\n"
+        dados += "<TD><IMG SRC=" + path + "></TD>\n"
+        dados += "</TR>\n"
+
+    return render_template('plataformas.html', dados=dados)
+
+
 app.run(debug=True)

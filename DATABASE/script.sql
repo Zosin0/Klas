@@ -25,7 +25,8 @@ CREATE TABLE tbPlataformas(
 	idPlataformas INT AUTO_INCREMENT PRIMARY KEY,
     nmePlataformas VARCHAR(50) NOT NULL,
     descPlataformas VARCHAR(200) NOT NULL,
-	dsc_path_imagem_plataformas VARCHAR(50) NOT NULL
+	dsc_path_imagem_plataformas VARCHAR(1000) NOT NULL,
+	link_plataformas varchar(1000) not null
 
 );
 -- CURSOS GRATIS -- 
