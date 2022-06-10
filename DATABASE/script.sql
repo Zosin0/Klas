@@ -53,5 +53,8 @@ INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUE
 ("Pedro Henrique Moreira da Silva", "22201914", "BANCO DE DADOS","\\static\\imagens\\pedrom.png"),
 ("Matheus Soares Accioly", "22908908", "HTML/CSS","\\static\\imagens\\matheusa.png");
 
+insert into tbPlataformas(nmePlataformas, descPlataformas, dsc_path_imagem_plataformas) values
+('Guanabara', 'Curso em Video', 'https://www.cursoemvideo.com/wp-content/uploads/2019/08/guana6.png');
+
 
 SELECT * FROM GrupoKlas;
