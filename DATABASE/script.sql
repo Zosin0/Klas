@@ -46,10 +46,11 @@ CREATE TABLE tbCursoPago(
 );
 
 INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUES
-("Lucas Zoser Nunes Costa", "22105593", "FRONT-END", "\\static\\imagens\\lucasz"),
-("Leonardo Benttes Almeida Placido dos Santos", "22103833", "BACK-END","\\static\\imagens\\leob"),
-("Leonardo Areias Rodovalho", "221570", "FRAMEWORKS", "\\static\\imagens\\leos"),
-("Pedro Henrique Moreira da Silva", "22201914", "BANCO DE DADOS","\\static\\imagens\\pedrom"),
-("Matheus Soares Accioly", "22908908", "HTML/CSS","\\static\\imagens\\matheusa");
+("Lucas Zoser Nunes Costa", "22105593", "FRONT-END", "\\static\\imagens\\lucasz.png"),
+("Leonardo Benttes Almeida Placido dos Santos", "22103833", "BACK-END","\\static\\imagens\\leob.png"),
+("Leonardo Areias Rodovalho", "221570", "FRAMEWORKS", "\\static\\imagens\\leos.png"),
+("Pedro Henrique Moreira da Silva", "22201914", "BANCO DE DADOS","\\static\\imagens\\pedrom.png"),
+("Matheus Soares Accioly", "22908908", "HTML/CSS","\\static\\imagens\\matheusa.png");
+
 
 SELECT * FROM GrupoKlas;
