@@ -26,8 +26,8 @@ CREATE TABLE tbPlataformas(
     nmePlataformas VARCHAR(50) NOT NULL,
     tipoCursos VARCHAR(60) NOT NULL,
     descPlataformas VARCHAR(500) NOT NULL,
-	dsc_path_imagem_plataformas VARCHAR(1000) NOT NULL,
-	link_plataformas varchar(1000) not null
+    link_plataformas varchar(1000) not null,
+	dsc_path_imagem_plataformas VARCHAR(1000) NOT NULL
 
 );
 -- CURSOS GRATIS --
@@ -62,21 +62,21 @@ INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUE
 
 -- INSERT PLATAFORMAS(SÓ AS GRATIS) --
 
-INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, dsc_path_imagem_plataformas, link_plataformas) VALUES
+INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, link_plataformas, dsc_path_imagem_plataformas) VALUES
 ("BitDegree", "GRÁTIS/PAGOS", "Plataforma completa com vários tipos de cursos, incluindo cursos gratuitos de Desenvolvimento Web, perfeito pra quem quer aprender HTML, CSS, e Javascript.",
-"\\static\\imagens\\bitd.png", "https://www.bitdegree.org/learn/"),
+"https://www.bitdegree.org/learn/", "/static/imagens/bitd.png"),
 ("Code Academy", "GRÁTIS/PAGOS", "Plataforma perfeita pra quem está começando na programação, pois mostra a saída do código em tempo real, além de contar com um vasto catálogos de cursos.",
-"\\static\\imagens\\codea.png", "https://www.codecademy.com/"),
+"https://www.codecademy.com/", "/static/imagens/codea.png"),
 ("Khan Academy", "GRÁTIS", "Além da infinidade de conteúdo escolar, oferece vários conceitos essenciais sobre lógica de programação e o básico das  várias linguagens importantes para o mercado.",
-"\\static\\imagens\\khana.png", "https://www.khanacademy.org/computing/computer-programming"),
+"https://www.khanacademy.org/computing/computer-programming", "/static/imagens/khana.png"),
 ("W3Schools", "GRÁTIS", "Com foco nos tutoriais, vai ensinar ensinar a estruturação e a semântica de quase qualquer linguagem de programação",
-"\\static\\imagens\\w3s.png", "https://www.w3schools.com/"),
+"https://www.w3schools.com/", "/static/imagens/w3s.png"),
 ("Codewars", "GRÁTIS", "Plataforma que conta com uma comunidade própria, com cursos, tutoriais e desafios de programação.",
-"\\static\\imagens\\codew.png", "https://www.codewars.com/"),
+"https://www.codewars.com/", "/static/imagens/codew.png"),
 ("Curso em vídeo", "GRÁTIS", "Conhecido pela excelente didática das aulas, oferece muitos cursos de programação, com a possibilidade de ganhar certificados.",
-"\\static\\imagens\\cursoe.png", "https://www.cursoemvideo.com/"),
+"https://www.cursoemvideo.com/", "/static/imagens/cursoe.png"),
 ("Free Code Camp", "GRÁTIS", "Plataforma Web de aprendizagem interativa, um fórum de comunidade on-line, salas de bate-papo, publicações Medium e organizações locais que pretendem tornar a aprendizagem de desenvolvimento web acessível à qualquer pessoa.",
-"\\static\\imagens\\freec.png", "https://www.freecodecamp.org/");
+ "https://www.freecodecamp.org/", "/static/imagens/freec.png");
 
 
 SELECT * FROM GrupoKlas;

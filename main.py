@@ -24,34 +24,37 @@ def menu():
 @app.route('/times')
 def times():
     # Consultando dados na tabela
-    mysql = bd.SQL("lucas", "1234", "Klas")
+    mysql = bd.SQL("", "", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = mysql.consultar(comando, [])
-    for (idt, nme, desc, ra, path) in cs:
+    for (idt, nome, desc, ra, path) in cs:
         imagens += "<TR>\n"
-        imagens += "<TD>" + nme + "</TD>\n"
-        imagens += "<TD>" + ra + "</TD>\n"
-        imagens += "<TD>" + desc + "</TD>\n"
-        imagens += "<TD><IMG SRC='" + path + "'></TD>\n"
+        imagens += f"<TD>{nome}</TD>\n"
+        imagens += f"<TD>{ra}</TD>\n"
+        imagens += f"<TD>{desc}</TD>\n"
+        imagens += f"<TD><IMG SRC={path}></TD>\n"
         imagens += "</TR>\n"
     return render_template('times.html', imagens=imagens)
 
 
 @app.route('/plataformas')
 def plataformas():
-    mysql = bd.SQL("lucas", "1234", "Klas")
+    mysql = bd.SQL("", "", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = mysql.consultar(comando, [])
     dados = ''
 
     for (idt, nome, tipo, desc, link, path) in cs:
-        dados += "<TR>\n"
-        dados += "<TD>" + nome + "</TD>\n"
-        dados += "<TD>" + tipo + "</TD>\n"
-        dados += "<TD>" + desc + "</TD>\n"
-        dados += "<TD><IMG SRC=" + path + "></TD>\n"
+        dados += f"<TR>\n"
+        dados += f"<TD>{nome}</TD>\n"
+        dados += f"<TD>{tipo}</TD>\n"
+        dados += f"<TD>{desc}</TD>\n"
+        dados += f"<TD><a href={link}\n"
+        dados += f"<TD><IMG SRC={path} alt={nome}></TD></a>\n"
         dados += "</TR>\n"
+
+
 
     return render_template('plataformas.html', dados=dados)
 
