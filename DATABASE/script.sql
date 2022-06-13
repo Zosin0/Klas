@@ -10,6 +10,7 @@ CREATE TABLE GrupoKlas(
     raAluno VARCHAR(10) NOT NULL,
 	dsc_path_imagem_aluno VARCHAR(100) NOT NULL
 );
+
 -- LINGUAGENS DE PROGRAMAÇÃO FALADAS --
 
 CREATE TABLE linguagens(
@@ -76,7 +77,20 @@ INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, link_plat
 ("Curso em vídeo", "GRÁTIS", "Conhecido pela excelente didática das aulas, oferece muitos cursos de programação, com a possibilidade de ganhar certificados.",
 "https://www.cursoemvideo.com/", "/static/imagens/cursoe.png"),
 ("Free Code Camp", "GRÁTIS", "Plataforma Web de aprendizagem interativa, um fórum de comunidade on-line, salas de bate-papo, publicações Medium e organizações locais que pretendem tornar a aprendizagem de desenvolvimento web acessível à qualquer pessoa.",
- "https://www.freecodecamp.org/", "/static/imagens/freec.png");
+ "https://www.freecodecamp.org/", "/static/imagens/freec.png"),
+("DankiCode", "PAGOS", "Plataforma que oferece vários pacotes com cursos de qualidade, cobrindo várias áreas da programação, e incluí a possibilidade de você mesmo ensinar!", 
+"https://cursos.dankicode.com/", "/static/imagens/dankic"),
+("Alura", "PAGOS", "Possui um custo-benefício e qualidade inigualável, uma das melhores plataformas para se aprender programação.", 
+"https://www.alura.com.br/", "/static/imagens/alura"),
+("Udemy", "PAGOS", "Não só oferece cursos de programação, mas de todas as ferramentas possíveis, contando com ótima qualidade e preço acessível.", 
+"https://www.udemy.com/", "/static/imagens/udemy"),
+("RocketSeat", "PAGOS/GRATIS", "Conta com 3 programas que ensinam muitos conceitos e linguagens de programação, focando principalmente no desenvolvimento web, inclusive o (discover) que é gratuito.", 
+"https://www.rocketseat.com.br/", "/static/imagens/rocketseat"),
+("Pluralsight", "PAGOS", "É uma opção mais cara, contudo conta com cursos em inglês e profissionais de alto nível.", 
+"https://www.pluralsight.com/", "/static/imagens/pluralsight"),
+("Udacity", "PAGOS", "Oferece cursos dos mais complexos assuntos de programação, aulas em inglês e conteúdo de qualidade.", 
+"https://www.udacity.com/", "/static/imagens/udacity");
+
 
 
 SELECT * FROM GrupoKlas;
