@@ -24,7 +24,7 @@ def menu():
 @app.route('/times')
 def times():
     # Consultando dados na tabela
-    mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+    mysql = bd.SQL("lucas", "1234", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = mysql.consultar(comando, [])
@@ -40,14 +40,15 @@ def times():
 
 @app.route('/plataformas')
 def plataformas():
-    mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+    mysql = bd.SQL("lucas", "1234", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = mysql.consultar(comando, [])
     dados = ''
 
-    for (idt, nome, desc, link, path) in cs:
+    for (idt, nome, tipo, desc, link, path) in cs:
         dados += "<TR>\n"
         dados += "<TD>" + nome + "</TD>\n"
+        dados += "<TD>" + tipo + "</TD>\n"
         dados += "<TD>" + desc + "</TD>\n"
         dados += "<TD><IMG SRC=" + path + "></TD>\n"
         dados += "</TR>\n"
