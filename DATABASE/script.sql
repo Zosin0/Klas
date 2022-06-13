@@ -1,7 +1,7 @@
 CREATE DATABASE Klas;
 USE Klas;
 
--- INTEGRANTES DO TRABALHO -- 
+-- INTEGRANTES DO TRABALHO --
 
 CREATE TABLE GrupoKlas(
 	idAluno INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,7 +10,7 @@ CREATE TABLE GrupoKlas(
     raAluno VARCHAR(10) NOT NULL,
 	dsc_path_imagem_aluno VARCHAR(100) NOT NULL
 );
--- LINGUAGENS DE PROGRAMAÇÃO FALADAS -- 
+-- LINGUAGENS DE PROGRAMAÇÃO FALADAS --
 
 CREATE TABLE linguagens(
 	idLinguagem INT AUTO_INCREMENT PRIMARY KEY,
@@ -19,7 +19,7 @@ CREATE TABLE linguagens(
 	dsc_path_imagem_linguagem VARCHAR(50) NOT NULL
 
 );
--- TODAS AS PLATAFORMAS -- 
+-- TODAS AS PLATAFORMAS --
 
 CREATE TABLE tbPlataformas(
 	idPlataformas INT AUTO_INCREMENT PRIMARY KEY,
@@ -30,7 +30,7 @@ CREATE TABLE tbPlataformas(
 	link_plataformas varchar(1000) not null
 
 );
--- CURSOS GRATIS -- 
+-- CURSOS GRATIS --
 
 CREATE TABLE tbCursoGratis(
 	idCursoGratis INT AUTO_INCREMENT PRIMARY KEY,
@@ -65,17 +65,17 @@ INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUE
 INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, dsc_path_imagem_plataformas, link_plataformas) VALUES
 ("BitDegree", "GRÁTIS/PAGOS", "Plataforma completa com vários tipos de cursos, incluindo cursos gratuitos de Desenvolvimento Web, perfeito pra quem quer aprender HTML, CSS, e Javascript.",
 "\\static\\imagens\\bitd.png", "https://www.bitdegree.org/learn/"),
-("Code Academy", "GRÁTIS/PAGOS", "Plataforma perfeita pra quem está começando na programação, pois mostra a saída do código em tempo real, além de contar com um vasto catálogos de cursos.", 
+("Code Academy", "GRÁTIS/PAGOS", "Plataforma perfeita pra quem está começando na programação, pois mostra a saída do código em tempo real, além de contar com um vasto catálogos de cursos.",
 "\\static\\imagens\\codea.png", "https://www.codecademy.com/"),
-("Khan Academy", "GRÁTIS.png", "Além da infinidade de conteúdo escolar, oferece vários conceitos essenciais sobre lógica de programação e o básico das  várias linguagens importantes para o mercado.", 
+("Khan Academy", "GRÁTIS", "Além da infinidade de conteúdo escolar, oferece vários conceitos essenciais sobre lógica de programação e o básico das  várias linguagens importantes para o mercado.",
 "\\static\\imagens\\khana.png", "https://www.khanacademy.org/computing/computer-programming"),
-("W3Schools", "GRÁTIS", "Com foco nos tutoriais, vai ensinar ensinar a estruturação e a semântica de quase qualquer linguagem de programação", 
+("W3Schools", "GRÁTIS", "Com foco nos tutoriais, vai ensinar ensinar a estruturação e a semântica de quase qualquer linguagem de programação",
 "\\static\\imagens\\w3s.png", "https://www.w3schools.com/"),
-("Codewars", "GRÁTIS", "Plataforma que conta com uma comunidade própria, com cursos, tutoriais e desafios de programação.", 
+("Codewars", "GRÁTIS", "Plataforma que conta com uma comunidade própria, com cursos, tutoriais e desafios de programação.",
 "\\static\\imagens\\codew.png", "https://www.codewars.com/"),
-("Curso em vídeo", "GRÁTIS", "Conhecido pela excelente didática das aulas, oferece muitos cursos de programação, com a possibilidade de ganhar certificados.", 
+("Curso em vídeo", "GRÁTIS", "Conhecido pela excelente didática das aulas, oferece muitos cursos de programação, com a possibilidade de ganhar certificados.",
 "\\static\\imagens\\cursoe.png", "https://www.cursoemvideo.com/"),
-("Free Code Camp", "GRÁTIS.png", "Plataforma Web de aprendizagem interativa, um fórum de comunidade on-line, salas de bate-papo, publicações Medium e organizações locais que pretendem tornar a aprendizagem de desenvolvimento web acessível à qualquer pessoa.", 
+("Free Code Camp", "GRÁTIS", "Plataforma Web de aprendizagem interativa, um fórum de comunidade on-line, salas de bate-papo, publicações Medium e organizações locais que pretendem tornar a aprendizagem de desenvolvimento web acessível à qualquer pessoa.",
 "\\static\\imagens\\freec.png", "https://www.freecodecamp.org/");
 
 
