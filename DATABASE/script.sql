@@ -61,7 +61,7 @@ INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUE
 ,"\\static\\imagens\\matheusa.png");
 
 
--- INSERT PLATAFORMAS(SÓ AS GRATIS) --
+-- INSERT PLATAFORMAS--
 
 INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, link_plataformas, dsc_path_imagem_plataformas) VALUES
 ("BitDegree", "GRÁTIS/PAGOS", "Plataforma completa com vários tipos de cursos, incluindo cursos gratuitos de Desenvolvimento Web, perfeito pra quem quer aprender HTML, CSS, e Javascript.",
@@ -91,6 +91,7 @@ INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, link_plat
 ("Udacity", "PAGOS", "Oferece cursos dos mais complexos assuntos de programação, aulas em inglês e conteúdo de qualidade.", 
 "https://www.udacity.com/", "/static/imagens/udacity");
 
+--INSERT LINGUAGENS --
 
 
 SELECT * FROM GrupoKlas;
