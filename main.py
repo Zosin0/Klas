@@ -24,7 +24,7 @@ def menu():
 @app.route('/times')
 def times():
     # Consultando dados na tabela
-    mysql = bd.SQL("root", "uniceub", "Klas")
+    mysql = bd.SQL("root", "1234", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = mysql.consultar(comando, [])
@@ -40,7 +40,7 @@ def times():
 
 @app.route('/plataformas')
 def plataformas():
-    mysql = bd.SQL("root", "uniceub", "Klas")
+    mysql = bd.SQL("root", "1234", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = mysql.consultar(comando, [])
     dados = ''
@@ -55,8 +55,27 @@ def plataformas():
         dados += "</TR>\n"
 
 
-
     return render_template('plataformas.html', dados=dados)
+
+@app.route('/linguagens')
+def linguagens():
+    mysql = bd.SQL("root", "1234", "Klas")
+    comando = 'select * from linguagens;'
+    cs = mysql.consultar(comando, [])
+    infos = ''
+
+    for (idt, nome, pop, sal, desc, path) in cs:
+        infos += f"<TR>\n"
+        infos += f"<TD>{nome}</TD>\n"
+        infos += f"<TD>{pop}</TD>\n"
+        infos += f"<TD>{sal}</TD>\n"
+        infos += f"<TD>{desc}</TD>\n"
+        infos += f"<TD><IMG SRC={path} alt={nome}></TD></a>\n"
+        infos += "</TR>\n"
+
+
+    return render_template('linguagens.html', infos=infos)
+
 
 
 app.run(debug=True)

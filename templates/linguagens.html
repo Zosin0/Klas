@@ -32,18 +32,19 @@
       </div>
 
     </header>
-    <div id="time">
-      Nosso time é composto por:
+    <div id="linguagens">
+      As linguagens mais populares do mercado são:
     </div>
-      <div id="draggable" class="ui-widget-content">
+      <div id="static" class="ui-widget-content">
         <table class="table table-dark">
             <tr>
               <th>Nome</th>
-              <th>RA</th>
-              <th>Função</th>>
-              <th>Foto</th>
+              <th>Popularidade</th>
+              <th>Salario</th>
+              <th>Descriçao</th>
+              <th></th>
               </tr>
-              {{ imagens | safe }}
+              {{ infos | safe }}
         </table>
       </div>
 

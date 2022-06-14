@@ -18,6 +18,8 @@ CREATE TABLE linguagens(
 	idLinguagem INT AUTO_INCREMENT PRIMARY KEY,
 	nmeLinguagem VARCHAR(50) NOT NULL,
 	popularidadeLinguagem INT NOT NULL,
+	salarioLinguagem VARCHAR (60) NOT NULL,
+    descLinguagem VARCHAR(500) NOT NULL,
 	dsc_path_imagem_linguagem VARCHAR(50) NOT NULL
 
 );
@@ -93,5 +95,19 @@ INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, link_plat
 "https://www.udacity.com/", "/static/imagens/udacity.png");
 
 -- INSERT LINGUAGENS --
+INSERT INTO linguagens(nmeLinguagem, popularidadeLinguagem, salarioLinguagem, descLinguagem, dsc_path_imagem_linguagem) VALUES
+("JavaScript", 1, "Média de Salário no Mundo: $55.690", "JavaScript é uma das principais linguagens utilizadas na Internet. É usada para desenvolver aplicações em formato web, pelo computador, e mobile, pelo celular. Para quem busca aprender, deve saber que quase todos os navegadores contêm um código JavaScript.  ", 
+"/static/imagens/javas.png"),
+("Phyton", 2, "Média de Salário no Mundo: $56.670", "Python é uma linguagem de código aberto de forma fácil e acessível de aprender. Ela também é eficiente para projetos complexos, pois sua legibilidade e sua sintaxe são simples e diretas. Entendendo-a é possível programar para computadores, celulares e jogos, entre aplicações básicas e avançadas. Sua capacidade de processar grandes bases de dados acaba a levando para o meio da computação científica, ciência de dados e Inteligência Artificial.", 
+"/static/imagens/python.png"),
+("Java ", 3, "Média de Salário no Mundo: $55.690", "Java é uma linguagem de programação orientada a objetos. Por ser popular no desenvolvimento de sites e aplicativos para qualquer tipo de hardware, é uma das linguagens mais relevantes do meio. Ela pode ser usada no desenvolvimento de apps móveis, web, desktop e em qualquer sistema operacional ou hardware. ", 
+"/static/imagens/java.png"),
+("PHP", 4, "Média de Salário no Mundo: $64.000", "PHP é uma linguagem de script de uso geral, principalmente na escrita de códigos HTML. É uma das mais popularizadas por gerenciadores de conteúdo como Wordpress. Através de sua programação, sites dinâmicos, lojas virtuais, blogs e plataformas de cursos online podem ser criados. ", 
+"/static/imagens/php.png"),
+("C#", 5, "Média de Salário no Mundo: $58.469", "C#, ou C-Sharp, é a linguagem orientada a objetos, simples, moderna e de uso geral. Criada para substituir o Java na plataforma NET da Microsoft, pode ser usada para construir aplicativos de computador e celular, jogos e softwares corporativos. É a principal linguagem da Microsoft para o desenvolvimento de aplicações para Windows.", 
+"/static/imagens/csharp.png"),
+("C/C++", 6, "Média de Salário no Mundo: $55.363", "C++ é a extensão da linguagem C, porém completa. É rápida e estável para aplicativos e sistemas com gráficos avançados, mas seu aprendizado pode ser mais demorado devido à sua complexidade. A linguagem é bastante usada para desenvolver aplicações mais pesadas e de alto desempenho.", 
+"/static/imagens/c.png");
+
 
 SELECT * FROM GrupoKlas;
