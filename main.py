@@ -79,6 +79,8 @@ def linguagens():
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
+    app.secret_key = 'não fale para ninguém!'
+    email = firstName = password1 = password2 = None
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -87,20 +89,20 @@ def registro():
 
 
         # Terminar mensagens de erro.(Léo)
-        # if len(email) < 4:
-        #     flash('Email inválido!', category='erro')
-        #
-        # elif len(firstName) < 2:
-        #     flash('O nome precisa conter mais de duas letras!', category='erro')
-        #
-        # elif len(password1) < 8:
-        #     flash('A senha deve conter pelo menos 8 caracteres!', category='erro')
-        #
-        # elif password2 != password1:
-        #     flash('Senhas diferentes!', category='erro')
-        #
-        # else:
-        #     flash('Conta criada!', category='sucesso')
+        if len(email) < 4:
+            flash('Email inválido!', category='erro')
+
+        elif len(firstName) < 2:
+            flash('O nome precisa conter mais de duas letras!', category='erro')
+
+        elif len(password1) < 8:
+            flash('A senha deve conter pelo menos 8 caracteres!', category='erro')
+
+        elif password2 != password1:
+            flash('Senhas diferentes!', category='erro')
+
+        else:
+            flash('Conta criada!', category='sucesso')
 
         mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
         comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
@@ -114,7 +116,7 @@ def registro():
 def login():
     dados = request.form
 
-    return render_template('login.html')
+    return render_template('login.html', dados=dados)
 
 
 app.run(debug=True)
