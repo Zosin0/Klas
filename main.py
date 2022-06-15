@@ -59,7 +59,7 @@ def plataformas():
 
 @app.route('/linguagens')
 def linguagens():
-    mysql = bd.SQL("root", "1234", "Klas")
+    mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
     comando = 'select * from linguagens;'
     cs = mysql.consultar(comando, [])
     infos = ''
@@ -67,15 +67,54 @@ def linguagens():
     for (idt, nome, pop, sal, desc, path) in cs:
         infos += f"<TR>\n"
         infos += f"<TD>{nome}</TD>\n"
-        infos += f"<TD>{pop}</TD>\n"
+        infos += f"<TD>#{pop}</TD>\n"
         infos += f"<TD>{sal}</TD>\n"
         infos += f"<TD>{desc}</TD>\n"
-        infos += f"<TD><IMG SRC={path} alt={nome}></TD></a>\n"
+        infos += f"<TD><IMG SRC={path} alt={nome}></TD>\n"
         infos += "</TR>\n"
 
 
     return render_template('linguagens.html', infos=infos)
 
+
+@app.route('/registro', methods=['GET', 'POST'])
+def registro():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        firstName = request.form.get('firstName')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+
+
+        # Terminar mensagens de erro.(Léo)
+        # if len(email) < 4:
+        #     flash('Email inválido!', category='erro')
+        #
+        # elif len(firstName) < 2:
+        #     flash('O nome precisa conter mais de duas letras!', category='erro')
+        #
+        # elif len(password1) < 8:
+        #     flash('A senha deve conter pelo menos 8 caracteres!', category='erro')
+        #
+        # elif password2 != password1:
+        #     flash('Senhas diferentes!', category='erro')
+        #
+        # else:
+        #     flash('Conta criada!', category='sucesso')
+
+        mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+        comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
+        cs = mysql.executar(comando, (email, firstName, password1))
+
+
+    return render_template('sign_up.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    dados = request.form
+
+    return render_template('login.html')
 
 
 app.run(debug=True)

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +18,8 @@
   } );
   </script>
   </head>
-  <body>
-    <header>
+<body>
+<header>
       <div class="inner-width">
         <a href="/" class="logo">&lt;KLAS.DEV/&gt;</a>
         <i class="menu-toggle-btn fas fa-bars"></i>
@@ -33,27 +33,55 @@
       </div>
 
     </header>
-    <div id="plataformas">
-      Nossas plataformas recomendadas são:
+<form method="post">
+    <h2>Registrar-se</h2>
+    <div class="form-group">
+        <label for="email">Endereço de email</label>
+        <input
+                type="email"
+                class="form_control"
+                id="email"
+                name="email"
+                placeholder=""
+        />
     </div>
-      <div id="static" class="ui-widget-content">
-        <table class="table table-dark">
-            <tr>
-              <th>Nome</th>
-              <th>Tipo</th>
-              <th>Descrição</th>
-              <th></th>
-              </tr>
-              {{ dados | safe }}
-        </table>
-      </div>
+
+    <div class="form-group">
+        <label for="firstName">Primeiro Nome</label>
+        <input
+                type="text"
+                class="form_control"
+                id="firstName"
+                name="firstName"
+                placeholder=""
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="password1">Senha</label>
+        <input
+                type="password"
+                class="form_control"
+                id="password1"
+                name="password1"
+                placeholder=""
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="password2">Confirme a Senha</label>
+        <input
+                type="password"
+                class="form_control"
+                id="password2"
+                name="password2"
+                placeholder=""
+        />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
 
 
-    <script type="text/javascript">
-      $(".menu-toggle-btn").click(function(){
-        $(this).toggleClass("fa-times");
-        $(".navigation-menu").toggleClass("active");
-      });
-    </script>
-  </body>
+</body>
 </html>

@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/style.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
-    <script>
-  $( function() {
-    $( "#draggable" ).draggable();
-  } );
-  </script>
   </head>
-  <body>
-    <header>
+<body>
+<header>
       <div class="inner-width">
         <a href="/" class="logo">&lt;KLAS.DEV/&gt;</a>
         <i class="menu-toggle-btn fas fa-bars"></i>
@@ -33,27 +26,37 @@
       </div>
 
     </header>
-    <div id="plataformas">
-      Nossas plataformas recomendadas são:
+<form method="post">
+    <h2>Login</h2>
+    <div class="form-group">
+        <label for="email">Endereço de email</label>
+        <input
+                type="email"
+                class="form_control"
+                id="email"
+                name="email"
+                placeholder=""
+        />
     </div>
-      <div id="static" class="ui-widget-content">
-        <table class="table table-dark">
-            <tr>
-              <th>Nome</th>
-              <th>Tipo</th>
-              <th>Descrição</th>
-              <th></th>
-              </tr>
-              {{ dados | safe }}
-        </table>
-      </div>
+
+    <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+                type="password"
+                class="form_control"
+                id="password"
+                name="password"
+                placeholder=""
+        />
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+    <form action="sign_up.html">
+        <input type="submit" value="Registrar-se" />
+    </form>
 
 
-    <script type="text/javascript">
-      $(".menu-toggle-btn").click(function(){
-        $(this).toggleClass("fa-times");
-        $(".navigation-menu").toggleClass("active");
-      });
-    </script>
-  </body>
+
+</form>
+
+</body>
 </html>
