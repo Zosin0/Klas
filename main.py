@@ -5,9 +5,6 @@ from flask import Flask, render_template, flash, request, redirect, url_for, Blu
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
-
-
 UPLOAD_FOLDER = 'C:\\temp\\Klas\\Klas\\static\\imagens'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
@@ -18,17 +15,13 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 main = Blueprint('main', __name__)
 app.secret_key = 'projetinho pai'
 
-
-
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
 @app.route('/')
 def menu():
     return render_template('home.html')
-
 
 @app.route('/times')
 def times():
@@ -89,6 +82,37 @@ def linguagens():
 def cursos():
     return render_template('cursos.html', cursos=cursos)
 
+@app.route('/cursos_pagos')
+def cursos_pagos():
+    sql = bd.SQL("lucas", "1234", "Klas")
+    comando = 'select idCursoPago, nmeCursoPago, descCursoPago, link_curso_pago from tbCursoPago;'
+    cs = sql.consultar(comando, [])
+    cursosp = ''
+
+    for (idt, nome, desc, link) in cs:
+        cursosp += f"<TR>\n"
+        cursosp += f"<TD>{nome}</TD>\n"
+        cursosp += f"<TD>#{desc}</TD>\n"
+        cursosp += f"<TD>{link}</TD>\n"
+        cursosp += "</TR>\n"
+
+    return render_template('cursos_pagos.html', cursosp=cursosp)
+
+@app.route('/cursos_gratis')
+def cursos_gratis():
+    sql = bd.SQL("lucas", "1234", "Klas")
+    comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
+    cs = sql.consultar(comando, [])
+    cursosg = ''
+
+    for (idt, nome, desc, link) in cs:
+        cursosg += f"<TR>\n"
+        cursosg += f"<TD>{nome}</TD>\n"
+        cursosg += f"<TD>#{desc}</TD>\n"
+        cursosg += f"<TD>{link}</TD>\n"
+        cursosg += "</TR>\n"
+
+    return render_template('cursos_gratis.html', cursosg=cursosg)
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():

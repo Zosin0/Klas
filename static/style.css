@@ -5,7 +5,7 @@
   font-family: "Open Sans",sans-serif;
 }
 body{
-  background-color: #173D9E;
+  background-color: white;
 }
 header{
   height: 90px;
@@ -135,6 +135,82 @@ header{
     padding: 1.5em;
     }
 
-.cursos{
+/*CSS HOMEPAGE*/
+.conteudo{
+    margin-bottom: 48px;
+    border-top: 0.4px solid #FFF2E7;
+}
 
+.conteudo-principal{
+    display: flex;
+    margin-left: 60px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.conteudo-principal-escrito{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.conteudo-principal-escrito-titulo{
+    font-family: 'Open-Sans', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: black;
+}
+
+.conteudo-principal-escrito-subtitulo{
+    font-family: 'Open-Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+}
+
+.conteudo-principal-escrito-botao{
+    background-color: rgba(57, 87, 255, 0.8);
+    width: 180px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: black;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+    transition: transform 200ms ease-in-out;
+}
+
+.conteudo-principal-escrito-botao:hover{
+    background-color: rgba(39, 63, 198, 0.19);
+}
+
+.conteudo-principal-imagem{
+    height: 400px;
+}
+
+/*CSS CURSOS*/
+.butao-cursos{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+  height: 70px;
+  border-radius: 0;
+  background-color: #A3BAE1;
+  border: none;
+  color: black;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 40px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 0px #000000;
+  transition: transform 200ms ease-in-out;
+}
+button:hover{
+  transform: scale(1.05);
 }
