@@ -64,6 +64,15 @@ CREATE TABLE tbCursoPago(
 
 );
 
+create table tbUsuarios(
+	idUsuario int auto_increment primary key,
+    email_usuario varchar(50),
+    nome_usuario varchar(50),
+    senha_usuario varchar(1000),
+    unique key(email_usuario)
+);
+
+
 
 -- INSERT ALUNOS (COMPLETO) --
 INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUES
