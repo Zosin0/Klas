@@ -1,5 +1,3 @@
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
 import mysql.connector
 from util import bd
 import os
@@ -35,7 +33,7 @@ def menu():
 @app.route('/times')
 def times():
     # Consultando dados na tabela
-    sql = bd.SQL("lucas", "1234", "Klas")
+    sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
@@ -51,7 +49,7 @@ def times():
 
 @app.route('/plataformas')
 def plataformas():
-    sql = bd.SQL("lucas", "1234", "Klas")
+    sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = sql.consultar(comando, [])
     dados = ''
@@ -70,7 +68,7 @@ def plataformas():
 
 @app.route('/linguagens')
 def linguagens():
-    sql = bd.SQL("lucas", "1234", "Klas")
+    sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
     comando = 'select * from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ''
@@ -94,7 +92,7 @@ def cursos():
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('lucas', '1234', 'Klas')
+    sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -114,7 +112,7 @@ def registro():
             flash('Senhas diferentes!', category='erro')
 
         else:
-            sql = bd.SQL("lucas", "1234", "Klas")
+            sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
             comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
             try:
                 cs = sql.executar(comando, (email, firstName, password1))
@@ -133,7 +131,7 @@ def login():
     # Ainda precisa de requintes
 
     if request.method == 'POST':
-        sql = bd.SQL('lucas', '1234', 'Klas')
+        sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
         row = sql.consultar('select * from tbUsuarios where email_usuario=%s and senha_usuario=%s', (email, senha)).fetchone()
