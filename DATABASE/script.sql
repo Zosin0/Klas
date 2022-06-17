@@ -39,27 +39,30 @@ CREATE TABLE tbPlataformas(
 CREATE TABLE tbCursoGratis(
 	idCursoGratis INT AUTO_INCREMENT PRIMARY KEY,
     nmeCursoGratis VARCHAR(50) NOT NULL,
-	vlrCursoGratis DECIMAL(10, 2) NOT NULL,
-    descCursoGratis VARCHAR(200) NOT NULL
+    descCursoGratis VARCHAR(500) NOT NULL,
+	link_curso_gratis VARCHAR(300) NOT NULL,
+
+    codPlataforma INT,
+    codLinguagem INT,
+        
+    foreign key (codPlataforma) references tbPlataformas(idPlataformas),
+    foreign key (codLinguagem) references linguagens(idLinguagem)
+
 );
 
 -- CURSOS PAGOS --
 CREATE TABLE tbCursoPago(
 	idCursoPago INT AUTO_INCREMENT PRIMARY KEY,
     nmeCursoPago VARCHAR(50) NOT NULL,
-	vlrCursoPago DECIMAL(10, 2) NOT NULL,
-    descCursoPago VARCHAR(200) NOT NULL
+    descCursoPago VARCHAR(500) NOT NULL,
+	link_curso_pago VARCHAR(300) NOT NULL,
+    cod_plataforma INT UNIQUE,
+	cod_linguagem INT UNIQUE,
+    
+    foreign key (cod_plataforma) references tbPlataformas(idPlataformas),
+    foreign key (cod_linguagem) references linguagens(idLinguagem)
+
 );
-
-create table tbUsuarios(
-	idUsuario int auto_increment primary key,
-    email_usuario varchar(50),
-    nome_usuario varchar(50),
-    senha_usuario varchar(50)
-);
-
-
-
 
 
 -- INSERT ALUNOS (COMPLETO) --
@@ -93,31 +96,69 @@ INSERT INTO tbPlataformas(nmePlataformas, tipoCursos, descPlataformas, link_plat
 "https://www.cursoemvideo.com/", "/static/imagens/cursoe.png"),
 ("Free Code Camp", "GRÁTIS", "Plataforma Web de aprendizagem interativa, um fórum de comunidade on-line, salas de bate-papo, publicações Medium e organizações locais que pretendem tornar a aprendizagem de desenvolvimento web acessível à qualquer pessoa.",
  "https://www.freecodecamp.org/", "/static/imagens/freec.png"),
-("DankiCode", "PAGOS", "Plataforma que oferece vários pacotes com cursos de qualidade, cobrindo várias áreas da programação, e incluí a possibilidade de você mesmo ensinar!",
+("DankiCode", "PAGOS", "Plataforma que oferece vários pacotes com cursos de qualidade, cobrindo várias áreas da programação, e incluí a possibilidade de você mesmo ensinar!", 
 "https://cursos.dankicode.com/", "/static/imagens/dankic.png"),
-("Alura", "PAGOS", "Possui um custo-benefício e qualidade inigualável, uma das melhores plataformas para se aprender programação.",
+("Alura", "PAGOS", "Possui um custo-benefício e qualidade inigualável, uma das melhores plataformas para se aprender programação.", 
 "https://www.alura.com.br/", "/static/imagens/alura.png"),
-("Udemy", "PAGOS", "Não só oferece cursos de programação, mas de todas as ferramentas possíveis, contando com ótima qualidade e preço acessível.",
+("Udemy", "PAGOS", "Não só oferece cursos de programação, mas de todas as ferramentas possíveis, contando com ótima qualidade e preço acessível.", 
 "https://www.udemy.com/", "/static/imagens/udemy.png"),
-("RocketSeat", "PAGOS/GRATIS", "Conta com 3 programas que ensinam muitos conceitos e linguagens de programação, focando principalmente no desenvolvimento web, inclusive o (discover) que é gratuito.",
+("RocketSeat", "PAGOS/GRATIS", "Conta com 3 programas que ensinam muitos conceitos e linguagens de programação, focando principalmente no desenvolvimento web, inclusive o (discover) que é gratuito.", 
 "https://www.rocketseat.com.br/", "/static/imagens/rocketseat.png"),
-("Pluralsight", "PAGOS", "É uma opção mais cara, contudo conta com cursos em inglês e profissionais de alto nível.",
+("Pluralsight", "PAGOS", "É uma opção mais cara, contudo conta com cursos em inglês e profissionais de alto nível.", 
 "https://www.pluralsight.com/", "/static/imagens/pluralsight.png"),
-("Udacity", "PAGOS", "Oferece cursos dos mais complexos assuntos de programação, aulas em inglês e conteúdo de qualidade.",
+("Udacity", "PAGOS", "Oferece cursos dos mais complexos assuntos de programação, aulas em inglês e conteúdo de qualidade.", 
 "https://www.udacity.com/", "/static/imagens/udacity.png");
 
 -- INSERT LINGUAGENS --
 INSERT INTO linguagens(nmeLinguagem, popularidadeLinguagem, salarioLinguagem, descLinguagem, dsc_path_imagem_linguagem) VALUES
-("JavaScript", 1, "Média de Salário no Mundo: $55.690", "JavaScript é uma das principais linguagens utilizadas na Internet. É usada para desenvolver aplicações em formato web, pelo computador, e mobile, pelo celular. Para quem busca aprender, deve saber que quase todos os navegadores contêm um código JavaScript.  ",
+("JavaScript", 1, "Média de Salário no Mundo: $55.690", "JavaScript é uma das principais linguagens utilizadas na Internet. É usada para desenvolver aplicações em formato web, pelo computador, e mobile, pelo celular. Para quem busca aprender, deve saber que quase todos os navegadores contêm um código JavaScript.  ", 
 "/static/imagens/javas.png"),
-("Phyton", 2, "Média de Salário no Mundo: $56.670", "Python é uma linguagem de código aberto de forma fácil e acessível de aprender. Ela também é eficiente para projetos complexos, pois sua legibilidade e sua sintaxe são simples e diretas. Entendendo-a é possível programar para computadores, celulares e jogos, entre aplicações básicas e avançadas. Sua capacidade de processar grandes bases de dados acaba a levando para o meio da computação científica, ciência de dados e Inteligência Artificial.",
+("Phyton", 2, "Média de Salário no Mundo: $56.670", "Python é uma linguagem de código aberto de forma fácil e acessível de aprender. Ela também é eficiente para projetos complexos, pois sua legibilidade e sua sintaxe são simples e diretas. Entendendo-a é possível programar para computadores, celulares e jogos, entre aplicações básicas e avançadas. Sua capacidade de processar grandes bases de dados acaba a levando para o meio da computação científica, ciência de dados e Inteligência Artificial.", 
 "/static/imagens/python.png"),
-("Java ", 3, "Média de Salário no Mundo: $55.690", "Java é uma linguagem de programação orientada a objetos. Por ser popular no desenvolvimento de sites e aplicativos para qualquer tipo de hardware, é uma das linguagens mais relevantes do meio. Ela pode ser usada no desenvolvimento de apps móveis, web, desktop e em qualquer sistema operacional ou hardware. ",
+("Java ", 3, "Média de Salário no Mundo: $55.690", "Java é uma linguagem de programação orientada a objetos. Por ser popular no desenvolvimento de sites e aplicativos para qualquer tipo de hardware, é uma das linguagens mais relevantes do meio. Ela pode ser usada no desenvolvimento de apps móveis, web, desktop e em qualquer sistema operacional ou hardware. ", 
 "/static/imagens/java.png"),
-("PHP", 4, "Média de Salário no Mundo: $64.000", "PHP é uma linguagem de script de uso geral, principalmente na escrita de códigos HTML. É uma das mais popularizadas por gerenciadores de conteúdo como Wordpress. Através de sua programação, sites dinâmicos, lojas virtuais, blogs e plataformas de cursos online podem ser criados. ",
+("PHP", 4, "Média de Salário no Mundo: $64.000", "PHP é uma linguagem de script de uso geral, principalmente na escrita de códigos HTML. É uma das mais popularizadas por gerenciadores de conteúdo como Wordpress. Através de sua programação, sites dinâmicos, lojas virtuais, blogs e plataformas de cursos online podem ser criados. ", 
 "/static/imagens/php.png"),
-("C#", 5, "Média de Salário no Mundo: $58.469", "C#, ou C-Sharp, é a linguagem orientada a objetos, simples, moderna e de uso geral. Criada para substituir o Java na plataforma NET da Microsoft, pode ser usada para construir aplicativos de computador e celular, jogos e softwares corporativos. É a principal linguagem da Microsoft para o desenvolvimento de aplicações para Windows.",
+("C#", 5, "Média de Salário no Mundo: $58.469", "C#, ou C-Sharp, é a linguagem orientada a objetos, simples, moderna e de uso geral. Criada para substituir o Java na plataforma NET da Microsoft, pode ser usada para construir aplicativos de computador e celular, jogos e softwares corporativos. É a principal linguagem da Microsoft para o desenvolvimento de aplicações para Windows.", 
 "/static/imagens/csharp.png"),
-("C/C++", 6, "Média de Salário no Mundo: $55.363", "C++ é a extensão da linguagem C, porém completa. É rápida e estável para aplicativos e sistemas com gráficos avançados, mas seu aprendizado pode ser mais demorado devido à sua complexidade. A linguagem é bastante usada para desenvolver aplicações mais pesadas e de alto desempenho.",
+("C/C++", 6, "Média de Salário no Mundo: $55.363", "C++ é a extensão da linguagem C, porém completa. É rápida e estável para aplicativos e sistemas com gráficos avançados, mas seu aprendizado pode ser mais demorado devido à sua complexidade. A linguagem é bastante usada para desenvolver aplicações mais pesadas e de alto desempenho.", 
 "/static/imagens/c.png");
 
+INSERT INTO tbCursoPago(nmeCursoPago, descCursoPago, link_curso_pago) VALUES 
+("Python Completo - UDEMY", "Curso completo de Python na Udemy- Algoritmos, estruturas de dados, fundamentos, orientação a objeto, programação funcional e muito mais...", 
+"https://www.udemy.com/course/curso-python-3-completo/"),
+("JavaScript Completo - UDEMY", "Domine Web com 15 Cursos + Projetos: Javascript, Angular, React, Next Vue, Node, HTML, CSS, jQuery, Bootstrap, Webpack, Gulp, MySQL...", 
+"https://www.udemy.com/course/curso-web/"),
+("Java Completo - ALURA", "Curso mais didático e completo de Java e OO, UML, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB e muito mais...", 
+"https://www.udemy.com/course/java-curso-completo/"),
+("C/C++ Completo - ALURA", "Conheça os recursos da linguagem C, desde a programação com if, else, while e funções até manipulação de arrays, ponteiros, tipos e recursão. Do gcc ao seu executável!", 
+"https://www.alura.com.br/cursos-online-programacao/linguagem-c"),
+("C# Completo - UDEMY", "Aprenda C# em um só curso, Algoritmos, Estrutura de Dados, Fundamentos, OO, Coleções, Lambdas, LINQ e vários recursos!", 
+"https://www.udemy.com/course/curso-c-sharp/"),
+("PHP - UDEMY", "Você vai desenvolver com uma das linguagens mais populares no mercado que evoluiu muito em todos os requisitos nos últimos anos. Use corretamente a orientação a objetos com o PHP. Aprenda a lidar com as coleções. Aproveite o Composer e muito mais!", 
+"https://www.alura.com.br/cursos-online-programacao/php");
+	
+INSERT INTO tbCursoGratis(nmeCursoGratis, descCursoGratis, link_curso_gratis) VALUES 
+("Python - Curso em Vídeo", 
+"1", 
+"https://www.youtube.com/playlist?list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0"),
+("JavaScript- Curso em Vídeo ", "", 
+"https://www.youtube.com/playlist?list=PLntvgXM11X6pi7mW0O4ZmfUI1xDSIbmTm"),
+("Java - Curso em Vídeo", 
+"2", 
+"https://www.youtube.com/playlist?list=PLJH2yd19u4hzRtpzm2dDCWZx58UrE85ye"),
+("C - Programe seu Futuro", 
+"3", 
+"https://www.youtube.com/playlist?list=PLqJK4Oyr5WSjjEQCKkX6oXFORZX7ro3DA"),
+("C++ - CFBcursos", 
+"4", 
+"https://www.youtube.com/playlist?list=PLx4x_zx8csUjczg1qPHavU1vw1IkBcm40"),
+("C# - CFBcursos", 
+"5", 
+"https://www.youtube.com/playlist?list=PLx4x_zx8csUglgKTmgfVFEhWWBQCasNGi"),
+("PHP - Programação WEB", 
+"6", 
+"https://www.youtube.com/playlist?list=PL2Fdisxwzt_cOvOTUJhwEOxNV59wTs3ac");
+	
+
+SELECT * FROM GrupoKlas;
