@@ -1,8 +1,12 @@
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import mysql.connector
 from util import bd
 import os
 from flask import Flask, render_template, flash, request, redirect, url_for, Blueprint
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
+
 
 
 
@@ -15,6 +19,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 main = Blueprint('main', __name__)
 app.secret_key = 'projetinho pai'
+
 
 
 def allowed_file(filename):
@@ -30,10 +35,10 @@ def menu():
 @app.route('/times')
 def times():
     # Consultando dados na tabela
-    mysql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
-    cs = mysql.consultar(comando, [])
+    cs = sql.consultar(comando, [])
     for (idt, nome, desc, ra, path) in cs:
         imagens += "<TR>\n"
         imagens += f"<TD>{nome}</TD>\n"
@@ -46,9 +51,9 @@ def times():
 
 @app.route('/plataformas')
 def plataformas():
-    mysql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select * from tbPlataformas;'
-    cs = mysql.consultar(comando, [])
+    cs = sql.consultar(comando, [])
     dados = ''
 
     for (idt, nome, tipo, desc, link, path) in cs:
@@ -65,9 +70,9 @@ def plataformas():
 
 @app.route('/linguagens')
 def linguagens():
-    mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+    sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
     comando = 'select * from linguagens;'
-    cs = mysql.consultar(comando, [])
+    cs = sql.consultar(comando, [])
     infos = ''
 
     for (idt, nome, pop, sal, desc, path) in cs:
@@ -85,20 +90,12 @@ def linguagens():
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
-    mysql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
-    app.secret_key = 'não fale para ninguém!'
+    sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-
-        # Ver depois
-        # comando_email = 'select email_usuario from tbUsuarios'
-        # cs = mysql.consultar(comando_email, [])
-        #
-        # if email in cs:
-        #     flash('Email já cadastrado', category='erro')
 
         if len(email) < 4:
             flash('Email inválido!', category='erro')
@@ -113,12 +110,15 @@ def registro():
             flash('Senhas diferentes!', category='erro')
 
         else:
-            mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+            sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
             comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
-            cs = mysql.executar(comando, (email, firstName, generate_password_hash(password1, method='sha256')))
-            flash('Conta criada!', category='sucesso')
-            print(cs)
-            return redirect('/login')
+            try:
+                cs = sql.executar(comando, (email, firstName, password1))
+                flash('Conta criada!', category='sucesso')
+                return redirect('/login')
+
+            except mysql.connector.IntegrityError:
+                flash('Email já cadastrado!', category='erro')
 
 
     return render_template('sign_up.html')
@@ -126,27 +126,20 @@ def registro():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # Terminar depois
-    # comando_email = 'select email_usuario from tbUsuario;'
-    # comando_senha = 'select senha_usuario from tbUsuario;'
-    #
-    # if request.form == 'POST':
-    #     email = request.form.get('email')
-    #     senha = generate_password_hash(request.form.get('password'), method='sha256')
-    #
-    #     if email not in comando_email:
-    #         flash('Email ou senha inválidos')
-    #
-    #     elif senha not in comando_senha:
-    #         flash('Email ou senha inválidos')
-    #         return redirect('/home')
-    #
-    #     else:
-    #         flash('Login efetuado com sucesso!')
-    #         return redirect('/home')
+    # Ainda precisa de requintes
 
+    if request.method == 'POST':
+        sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
+        email = request.form.get('email')
+        senha = request.form.get('password')
+        row = sql.consultar('select * from tbUsuarios where email_usuario=%s and senha_usuario=%s', (email, senha)).fetchone()
+        print(email, senha)
+        if row:
+            flash('Login efetuado com sucesso!', category='sucesso')
+            return redirect('/')
 
-
+        else:
+            flash('Email ou senha inválidos.', category='erro')
 
 
     return render_template('login.html')
@@ -154,4 +147,6 @@ def login():
 
 
 if __name__ == '__main__':
+
+
     app.run(debug=True)

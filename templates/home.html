@@ -28,6 +28,14 @@
       </div>
     </header>
 
+    {% with mensagens3 = get_flashed_messages(with_categories=true) %}
+    {% if mensagens3 %}
+        {% for mensagem in mensagens3 %}
+                {{ mensagem }}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 
 
     <script type="text/javascript">

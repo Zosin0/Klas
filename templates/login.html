@@ -27,33 +27,42 @@
         </nav>
       </div>
     </header>
-<form method="post">
-    <h2>Login</h2>
+
+{% with mensagens2 = get_flashed_messages(with_categories=true) %}
+    {% if mensagens2 %}
+        {% for mensagem in mensagens2 %}
+                {{ mensagem }}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+<form method="POST">
+  <h3 align="center">Login</h3>
     <div class="form-group">
-        <label for="email">Endereço de email</label>
-        <input
+        <label for="email">Email</label>
+            <input
                 type="email"
-                class="form_control"
+                class="form-control"
                 id="email"
                 name="email"
                 placeholder=""
-        />
+            />
     </div>
 
     <div class="form-group">
         <label for="password">Senha</label>
-        <input
+            <input
                 type="password"
-                class="form_control"
+                class="form-control"
                 id="password"
                 name="password"
                 placeholder=""
-        />
+            />
     </div>
 
+  <button type="submit" class="btn btn-primary">Login</button>
 </form>
-
-<button type="submit" class="btn btn-primary">Entrar</button>
 <a href="http://127.0.0.1:5000/registro">
     <button>Registrar-se</button>
 </a>
