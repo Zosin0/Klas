@@ -1,7 +1,10 @@
 from util import bd
 import os
-from flask import Flask, render_template, flash, request, redirect, url_for
+from flask import Flask, render_template, flash, request, redirect, url_for, Blueprint
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
 
 UPLOAD_FOLDER = 'C:\\temp\\Klas\\Klas\\static\\imagens'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -9,6 +12,9 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+main = Blueprint('main', __name__)
+app.secret_key = 'projetinho pai'
 
 
 def allowed_file(filename):
@@ -79,16 +85,21 @@ def linguagens():
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
+    mysql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
     app.secret_key = 'não fale para ninguém!'
-    email = firstName = password1 = password2 = None
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
+        # Ver depois
+        # comando_email = 'select email_usuario from tbUsuarios'
+        # cs = mysql.consultar(comando_email, [])
+        #
+        # if email in cs:
+        #     flash('Email já cadastrado', category='erro')
 
-        # Terminar mensagens de erro.(Léo)
         if len(email) < 4:
             flash('Email inválido!', category='erro')
 
@@ -102,11 +113,12 @@ def registro():
             flash('Senhas diferentes!', category='erro')
 
         else:
+            mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+            comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
+            cs = mysql.executar(comando, (email, firstName, generate_password_hash(password1, method='sha256')))
             flash('Conta criada!', category='sucesso')
-
-        mysql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
-        comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
-        cs = mysql.executar(comando, (email, firstName, password1))
+            print(cs)
+            return redirect('/login')
 
 
     return render_template('sign_up.html')
@@ -114,9 +126,32 @@ def registro():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    dados = request.form
+    # Terminar depois
+    # comando_email = 'select email_usuario from tbUsuario;'
+    # comando_senha = 'select senha_usuario from tbUsuario;'
+    #
+    # if request.form == 'POST':
+    #     email = request.form.get('email')
+    #     senha = generate_password_hash(request.form.get('password'), method='sha256')
+    #
+    #     if email not in comando_email:
+    #         flash('Email ou senha inválidos')
+    #
+    #     elif senha not in comando_senha:
+    #         flash('Email ou senha inválidos')
+    #         return redirect('/home')
+    #
+    #     else:
+    #         flash('Login efetuado com sucesso!')
+    #         return redirect('/home')
 
-    return render_template('login.html', dados=dados)
 
 
-app.run(debug=True)
+
+
+    return render_template('login.html')
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
