@@ -3,16 +3,91 @@
 
 
 {% block content %}
-    <main class="conteudo">
-        <section class="conteudo-principal">
-            <div class="conteudo-principal-escrito">
-                <h1 class="conteudo-principal-escrito-titulo">Descubra as melhores plataformas para aprender as linguagens de programação mais populares do mercado!</h1>
-                <h2 class="conteudo-principal-escrito-subtitulo">Explore nosso site e descubra tudo sobre programação</h2>
-                <button class="conteudo-principal-escrito-botao">Saiba Mais!</button>
+<!--começar aqui-->
+    <main>
+            <div class="fundo0">
+                <div class="fundo-home">
+                    <h1 class="texto-descubra">Descubra onde estudar programação na internet </h1>
+                    <elipse class="elipse"></elipse>
+                    <h2 class="texto-melhores">Melhores plataformas e linguagens de programação do mercado.</h2>
+                    <button class="botao-saiba">Saiba Mais!</button>
+                </div>
+                <div class="fundo-home"><img width="400px" height="400px" src="\static\Klaslogo.png" alt="Logo"></div>
             </div>
-            <img class="conteudo-principal-imagem" src="\static\Klaslogo.png" alt="Logo">
-        </section>
 
+
+        <div class="cursos">
+            <div class="texto-cursos">
+                    <img class="python1" src="\static\imagens\python.png" alt="python">
+                    <p class="texto-p1">As linguagens que melhor <br/> pagam no mercado.</p>
+               </div>
+               <div class="texto-cursos">
+                   <img class="udemy1" src="\static\imagens\udemy.png" alt="udemy">
+                   <p class="texto-p2">Plataformas com o melhor <br/> custo-benefício.</p>
+               </div>
+               <div class="texto-cursos">
+                   <img class="cursoe1" src="\static\imagens\cursoe.png" alt="curso">
+                   <p> Cursos gratuitos com muita <br/> qualidade.</p>
+               </div>
+               <div class="texto-cursos">
+                   <img class="noticias1" src="\static\imagens\news.png" alt="noticias">
+                   <p class="texto-p4">Notícias sobre o mercado <br/> de programação.</p>
+               </div>
+            </div>
+
+            <div class="fundo1">
+                <div class="texto"><p class="texto-p5">Linguagens que mais pagam no mercado:</p></div>
+                <div class="texto"><p class="texto-p6">Linguagens mais fáceis de aprender:</p></div>
+            </div>
+
+            <div class="fundo2">
+                <div class="texto1">
+                    <h2 class="texto-sobre">Sobre</h2>
+                    <h3 class="texto-sub-sobre">
+                        5 estudantes de Ciência da Computação em constante busca de aprender
+                        todas as tendências do mundo da tecnologia. Desta forma, separamos alguns cursos,
+                        linguagens, e sites com toda a base necessária para aprender as principais linguagens
+                        do mercado, e ser capaz de programar qualquer aplicação.
+                    </h3>
+                </div>
+            </div>
+
+            <div class="sobre">
+                    <div class="conteudo-sobre">
+                        <img class="imagens-sobre"  src="\static\imagens\lucasz.png" alt="zoser">
+                    </div>
+
+                    <div class="conteudo-sobre">
+                        <img class="imagens-sobre" src="\static\imagens\leos.png" alt="leos">
+                    </div>
+
+                    <div class="conteudo-sobre">
+                        <img class="imagens-sobre" src="\static\imagens\matheusa.png" alt="matheusa">
+                    </div>
+
+                    <div class="conteudo-sobre">
+                        <img class="imagens-sobre" src="\static\imagens\leob.png" alt="leob">
+                    </div>
+
+                    <div class="conteudo-sobre">
+                        <img class="imagens-sobre" src="\static\imagens\pedrom.png" alt="pedrom">
+                    </div>
+            </div>
+           <!--
+            <div class="fundo3">
+                <p>Registre-se para receber notícias de programação.</p>
+                <p>Faça login para assistir vídeos exclusivos dos cursos compartilhados.</p>
+                <img/>
+                <button class="botao-conta"></button>
+                <button class="botao-conta"></button>
+                <img/>
+                <img/>
+
+            </div>
+            -->
+    </main>
+
+<!--terminar aqui-->
     <script type="text/javascript">
       $(".menu-toggle-btn").click(function(){
         $(this).toggleClass("fa-times");

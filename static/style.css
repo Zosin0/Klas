@@ -89,7 +89,7 @@ header{
 }
 
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:1020px) {
   .menu-toggle-btn{
     display: block !important;
   }
@@ -135,63 +135,175 @@ header{
     padding: 1.5em;
     }
 
+
 /*CSS HOMEPAGE*/
-.conteudo{
-    margin-bottom: 48px;
-    border-top: 0.4px solid #FFF2E7;
+
+
+.fundo0{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.conteudo-principal{
+
+.fundo-home{
+  display:block;
+  padding: 30px;
+}
+.texto-descubra{
+  font-family: 'Bai Jamjuree';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+  color: #222223;
+
+}
+.texto-melhores{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 60px;
+  letter-spacing: 0.01em;
+  color: #535354;
+}
+.elipse{
+  width: 239px;
+  height: 50px;
+  background: #222223;
+  box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
+}
+
+.botao-saiba{
+  width: 239px;
+  height: 50px;
+  color: white;
+  background: #222223;
+  box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
+}
+
+
+.cursos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  margin: auto;
+  padding-bottom: 80px;
+}
+
+
+.texto-cursos{
+  display: block;
+  align-content: center;
+  margin: auto;
+}
+
+.texto-cursos > img{
+  width: 130px;
+  height: 130px;
+}
+
+@media screen and (max-width:876px) {
+  .fundo0 {
+    display: block;
+  }
+  .texto-descubra {
+     font-size: 30px;
+  }
+}
+
+.fundo1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  height: 60vh;
+
+  background: rgba( 26, 240, 253, 0.35 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.texto{
+  display: inline-block;
+  font-family: 'Bai Jamjuree';
+  padding: 120px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 38px;
+  color: black;
+}
+
+.fundo2 {
     display: flex;
-    margin-left: 30px;
-    margin-right: 30px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+    padding-top: 20px;
+
 }
 
-.conteudo-principal-escrito{
+.texto1{
+    text-align: center;
+    font-style: normal;
+
+}
+.texto-sobre{
+  margin-top: 0px;
+  font-family: 'Bai Jamjuree';
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 80px;
+  letter-spacing: 0.01em;
+  color: #0D1111;
+  padding-bottom: 42px;
+}
+.texto-sub-sobre{
+  font-family: 'Roboto';
+  font-weight: 400;
+  max-width: 773px;
+  font-size: 30px;
+  line-height: 28px;
+  color: #767E7E;
+}
+.sobre{
+  margin-top: -40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+.conteudo-sobre{
+  display: block;
+  margin: auto;
+
+}
+.imagens-sobre{
+  padding: 5px;
+  background: rgba(146, 195, 222, 0.9);
+  box-shadow: 5px 5px 10px black;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.fundo3{
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+    padding-top: 20px;
+    background-color: #41B3F4;
 }
 
-.conteudo-principal-escrito-titulo{
-    font-family: 'Open-Sans', sans-serif;
-    font-weight: 400;
-    font-size: 30px;
-    color: black;
-}
-
-.conteudo-principal-escrito-subtitulo{
-    font-family: 'Open-Sans', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    color: black;
-}
-
-.conteudo-principal-escrito-botao{
-    background-color: rgba(57, 87, 255, 0.8);
-    width: 180px;
-    height: 60px;
-    border: none;
-    border-radius: 20px;
-    font-family: 'Sarala', sans-serif;
-    font-weight: 400;
-    font-size: 24px;
-    color: black;
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
-    transition: transform 200ms ease-in-out;
-}
-
-.conteudo-principal-escrito-botao:hover{
-    background-color: rgba(39, 63, 198, 0.19);
-}
-
-.conteudo-principal-imagem{
-    height: 300px;
-    width: 300px;
-}
 
 /*CSS CURSOS*/
 .butao-cursos{
