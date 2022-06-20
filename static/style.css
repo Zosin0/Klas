@@ -5,7 +5,7 @@
   font-family: "Open Sans",sans-serif;
 }
 body{
-  background-color: #173D9E;
+  background-color: white;
 }
 header{
   height: 90px;
@@ -89,7 +89,7 @@ header{
 }
 
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:1020px) {
   .menu-toggle-btn{
     display: block !important;
   }
@@ -135,67 +135,196 @@ header{
     padding: 1.5em;
     }
 
-.cursos{
 
+/*CSS HOMEPAGE*/
+
+
+.fundo0{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 
-.form-group h3{
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500;
+.fundo-home{
+  display:block;
+  padding: 30px;
 }
-
-.form-group{
-    width: 300px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #191919;
-    text-align: center;
-    color:white;
+.texto-descubra{
+  font-family: 'Bai Jamjuree';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+  color: #222223;
 
 }
-.form-group input[type = "email"], .form-group input[type= "password"]{
-    border: 0;
-    background: none;
+.texto-melhores{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 60px;
+  letter-spacing: 0.01em;
+  color: #535354;
+}
+.elipse{
+  width: 239px;
+  height: 50px;
+  background: #222223;
+  box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
+}
+
+.botao-saiba{
+  width: 239px;
+  height: 50px;
+  color: white;
+  background: #222223;
+  box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
+}
+
+
+.cursos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  margin: auto;
+  padding-bottom: 80px;
+}
+
+
+.texto-cursos{
+  display: block;
+  align-content: center;
+  margin: auto;
+}
+
+.texto-cursos > img{
+  width: 130px;
+  height: 130px;
+}
+
+@media screen and (max-width:876px) {
+  .fundo0 {
     display: block;
-    margin: 20px auto;
+  }
+  .texto-descubra {
+     font-size: 30px;
+  }
+}
+
+.fundo1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  height: 60vh;
+
+  background: rgba( 26, 240, 253, 0.35 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.texto{
+  display: inline-block;
+  font-family: 'Bai Jamjuree';
+  padding: 120px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 38px;
+  color: black;
+}
+
+.fundo2 {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+    padding-top: 20px;
+
+}
+
+.texto1{
     text-align: center;
-    border: 2px solid #3498db;
-    padding: 14px 10px;
-    width: 200px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-}
-.form-group input[type = "email"]:focus, .form-group input[type= "password"]:focus{
-    width: 280px;
-    border-color: #3498db;
+    font-style: normal;
 
 }
+.texto-sobre{
+  margin-top: 0px;
+  font-family: 'Bai Jamjuree';
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 80px;
+  letter-spacing: 0.01em;
+  color: #0D1111;
+  padding-bottom: 42px;
+}
+.texto-sub-sobre{
+  font-family: 'Roboto';
+  font-weight: 400;
+  max-width: 773px;
+  font-size: 30px;
+  line-height: 28px;
+  color: #767E7E;
+}
+.sobre{
+  margin-top: -40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+.conteudo-sobre{
+  display: block;
+  margin: auto;
 
-.form-group input[type = "submit"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 7px 5px;
-    width: 150px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+}
+.imagens-sobre{
+  padding: 5px;
+  background: rgba(146, 195, 222, 0.9);
+  box-shadow: 5px 5px 10px black;
+  max-width: 150px;
+  max-height: 150px;
 }
 
-.form-group input[type = "submit"]:hover{
-    background: @2ecc71;
+.fundo3{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+    padding-top: 20px;
+    background-color: #41B3F4;
 }
 
 
+/*CSS CURSOS*/
+.butao-cursos{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+  height: 70px;
+  border-radius: 0;
+  background-color: #A3BAE1;
+  border: none;
+  color: black;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 40px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 0px #000000;
+  transition: transform 200ms ease-in-out;
+}
+button:hover{
+  transform: scale(1.05);
+}

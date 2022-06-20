@@ -1,64 +1,35 @@
-
 {% extends "base.html" %}
-{% block title %}Linguagens{% endblock %}
+{% block title %}Login{% endblock %}
+
 {% block content %}
 <form method="POST">
+  <h3 align="center">Login</h3>
     <div class="form-group">
-        <h3>Login</h3>
-        <label for="email"></label>
+        <label for="email">Email</label>
             <input
                 type="email"
                 class="form-control"
                 id="email"
                 name="email"
-                placeholder="Email"
+                placeholder=""
             />
+    </div>
 
-
-
-        <label for="password"></label>
+    <div class="form-group">
+        <label for="password">Senha</label>
             <input
                 type="password"
                 class="form-control"
                 id="password"
                 name="password"
-                placeholder="Password"
+                placeholder=""
             />
-
-
-
-        <label for="login"></label>
-            <input
-                type="submit"
-                class="form-control"
-                id="login"
-                name="Login"
-                value = "Login"
-            />
-
-
-
     </div>
 
+  <button type="submit" class="btn btn-primary">Login</button>
 
 </form>
 <a href="http://127.0.0.1:5000/registro">
-    <button style="border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    position: absolute;
-    top: 61%;
-    left: 46.1%;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 7px 5px;
-    width: 150px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;">Registrar-se</button>
+    <button>Registrar-se</button>
 </a>
-
 {% endblock %}

@@ -9,7 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+
     <title>{% block title %}{% endblock %}</title>
+
+
+
+
 </head>
 <body>
     <header>
@@ -17,7 +22,7 @@
             <a href="/" class="logo">&lt;KLAS.DEV/&gt;</a>
             <i class="menu-toggle-btn fas fa-bars"></i>
             <nav class="navigation-menu">
-                <a href="#"><i class="fas fa-align-left about"></i> Cursos</a>
+                <a href="/cursos"><i class="fas fa-align-left about"></i> Cursos</a>
                 <a href="/plataformas"><i class="fab fa-buffer works"></i> Plataformas</a>
                 <a href="/times"><i class="fas fa-users team"></i> Time</a>
                 <a href="/linguagens"><i class="fas fa-headset contact" ></i> Linguagens</a>
@@ -30,8 +35,24 @@
 
     {% with mensagens = get_flashed_messages(with_categories=true) %}
         {% if mensagens %}
-            {% for mensagem in mensagens %}
-                {{ mensagem }}
+            {% for category, mensagem in mensagens %}
+
+                {% if category == 'erro' %}
+                    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                        {{ mensagem }}
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                {% else %}
+                    <div class="alert alert-success alert-dismissable fade show" role="alert">
+                        {{ mensagem }}
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
             {% endfor %}
         {% endif %}
     {% endwith %}
