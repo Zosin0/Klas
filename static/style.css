@@ -328,3 +328,136 @@ header{
 button:hover{
   transform: scale(1.05);
 }
+
+
+/*LOGIN*/
+
+.form-group h3{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.form-group{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+    color:white;
+
+}
+.form-group input[type = "email"], .form-group input[type= "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.form-group input[type = "email"]:focus, .form-group input[type= "password"]:focus{
+    width: 280px;
+    border-color: #3498db;
+
+}
+
+.form-group input[id = "login"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 7px 5px;
+    width: 150px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.form-group input[id = "Registrar"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 7px 5px;
+    width: 150px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.form-group input[type = "submit"]:hover{
+    background: @2ecc71;
+}
+
+.sign-up h2{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.sign-up{
+    width: 500px;
+    padding: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+    color:white;
+}
+
+.sign-up input[type = "email"], .sign-up input[id= "firstName"], .sign-up input[id= "password1"], .sign-up input[id= "password2"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.sign-up input[type = "email"]:focus, .sign-up input[id= "firstName"]:focus, .sign-up input[id= "password1"]:focus, .sign-up input[id= "password2"]:focus{
+    width: 280px;
+    border-color: #3498db;
+
+}
+
+.sign-up input[id = "Enviar"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 7px 5px;
+    width: 150px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
