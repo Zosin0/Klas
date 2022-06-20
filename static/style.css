@@ -335,17 +335,21 @@ button:hover{
 .form-group h3{
     color: white;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
+
 }
 
+
+
 .form-group{
-    width: 300px;
-    padding: 40px;
+    width: 500px;
+    padding: 60px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #191919;
+    font-weight: 500;
     text-align: center;
     color:white;
 
@@ -354,18 +358,19 @@ button:hover{
     border: 0;
     background: none;
     display: block;
-    margin: 20px auto;
+    margin: 40px auto;
     text-align: center;
     border: 2px solid #3498db;
     padding: 14px 10px;
-    width: 200px;
+    width: 300px;
     outline: none;
     color: white;
-    border-radius: 24px;
+    font-weight: 500;
+    border-radius: 50px;
     transition: 0.25s;
 }
 .form-group input[type = "email"]:focus, .form-group input[type= "password"]:focus{
-    width: 280px;
+    width: 400px;
     border-color: #3498db;
 
 }
@@ -377,8 +382,8 @@ button:hover{
     margin: 10px auto;
     text-align: center;
     border: 2px solid #2ecc71;
-    padding: 7px 5px;
-    width: 150px;
+    padding: 10px 8px;
+    width: 225px;
     outline: none;
     color: white;
     border-radius: 24px;
@@ -393,8 +398,8 @@ button:hover{
     margin: 10px auto;
     text-align: center;
     border: 2px solid #2ecc71;
-    padding: 7px 5px;
-    width: 150px;
+    padding: 10px 8px;
+    width: 225px;
     outline: none;
     color: white;
     border-radius: 24px;
@@ -460,4 +465,5 @@ button:hover{
     transition: 0.25s;
     cursor: pointer;
 }
+
 
