@@ -2,7 +2,66 @@
 {% block title %}Home{% endblock %}
 
 
+
+
 {% block content %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+            title: 'My Daily Activities',
+            backgroundColor: '#affafe',
+            is3D: true,
+        };
+
+
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d1'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+            title: 'My Daily Activities',
+            backgroundColor: '#affafe',
+            is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d2'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
 <!--começar aqui-->
     <main>
             <div class="fundo0">
@@ -36,8 +95,15 @@
             </div>
 
             <div class="fundo1">
-                <div class="texto"><p class="texto-p5">Linguagens que mais pagam no mercado:</p></div>
-                <div class="texto"><p class="texto-p6">Linguagens mais fáceis de aprender:</p></div>
+                <div class="texto"><p class="texto-p5">Linguagens que mais pagam no mercado:</p>
+                    <div id="piechart_3d1" style="width: 500px; height: 400px;"></div>
+                </div>
+
+
+                <div class="texto"><p class="texto-p6">Linguagens mais fáceis de aprender:</p>
+                    <div id="piechart_3d2" style="width: 500px; height: 400px;"></div>
+                </div>
+
             </div>
 
             <div class="fundo2">

@@ -15,13 +15,16 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 main = Blueprint('main', __name__)
 app.secret_key = 'projetinho pai'
 
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 @app.route('/')
 def menu():
     return render_template('home.html')
+
 
 @app.route('/times')
 def times():
@@ -56,8 +59,8 @@ def plataformas():
         dados += f"<TD><IMG SRC={path} alt={nome}></TD></a>\n"
         dados += "</TR>\n"
 
-
     return render_template('plataformas.html', dados=dados)
+
 
 @app.route('/linguagens')
 def linguagens():
@@ -75,12 +78,13 @@ def linguagens():
         infos += f"<TD><IMG SRC={path} alt={nome}></TD>\n"
         infos += "</TR>\n"
 
-
     return render_template('linguagens.html', infos=infos)
+
 
 @app.route('/cursos')
 def cursos():
     return render_template('cursos.html', cursos=cursos)
+
 
 @app.route('/cursos_pagos')
 def cursos_pagos():
@@ -98,6 +102,7 @@ def cursos_pagos():
 
     return render_template('cursos_pagos.html', cursosp=cursosp)
 
+
 @app.route('/cursos_gratis')
 def cursos_gratis():
     sql = bd.SQL("lucas", "1234", "Klas")
@@ -113,6 +118,7 @@ def cursos_gratis():
         cursosg += "</TR>\n"
 
     return render_template('cursos_gratis.html', cursosg=cursosg)
+
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
@@ -146,7 +152,6 @@ def registro():
             except mysql.connector.IntegrityError:
                 flash('Email já cadastrado!', category='erro')
 
-
     return render_template('sign_up.html')
 
 
@@ -158,8 +163,9 @@ def login():
         sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
-        row = sql.consultar('select * from tbUsuarios where email_usuario=%s and senha_usuario=%s', (email, senha)).fetchone()
-        print(email, senha)
+        row = sql.consultar('select * from tbUsuarios where email_usuario=%s and senha_usuario=%s',
+                            (email, senha)).fetchone()
+
         if row:
             flash('Login efetuado com sucesso!', category='sucesso')
             return redirect('/')
@@ -167,12 +173,8 @@ def login():
         else:
             flash('Email ou senha inválidos.', category='erro')
 
-
     return render_template('login.html')
 
 
-
 if __name__ == '__main__':
-
-
     app.run(debug=True)
