@@ -4,6 +4,7 @@ import os
 from flask import Flask, render_template, flash, request, redirect, url_for, Blueprint
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, login_required, logout_user, current_user
 
 UPLOAD_FOLDER = 'C:\\temp\\Klas\\Klas\\static\\imagens'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -157,22 +158,21 @@ def registro():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # Ainda precisa de requintes
 
     if request.method == 'POST':
         sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
-        row = sql.consultar('select email_usuario from tbUsuarios where email_usuario=%s',
-                            (email,)).fetchone()
+        user = sql.consultar('select email_usuario from tbUsuarios where email_usuario=%s',
+                             (email,)).fetchone()
 
-        check_password = sql.consultar('select senha_usuario from tbUsuarios where email_usuario=%s', (email,)).fetchone()
+        check_password = sql.consultar('select senha_usuario from tbUsuarios where email_usuario=%s',
+                                       (email,)).fetchone()
 
-
-        if row:
-            print(check_password[0])
+        if user:
             if check_password_hash(str(check_password[0]), senha):
                 flash('Login efetuado com sucesso!', category='sucesso')
+                login_user(user, remember=True)
                 return redirect('/')
 
             else:
@@ -182,6 +182,13 @@ def login():
             flash('Email ou senha inválidos.', category='erro')
 
     return render_template('login.html')
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect('/login')
 
 
 if __name__ == '__main__':
