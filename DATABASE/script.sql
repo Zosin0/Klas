@@ -80,7 +80,7 @@ INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUE
 , "/static/imagens/lucasz.png"),
 ("Leonardo Benttes Almeida Placido dos Santos", "22103833", "Back-End Developer: Apto a entregar a main.py com todas as funcionalidades especificadas e ajudar todos os integrantes com o funcionamento do site"
 , "/static/imagens/leob.png"),
-("Leonardo Areias Rodovalho", "221570", "Test Analyst DBA: Apto a separar os conteúdos do site, e popular as tabelas do banco de dados, fazendo assim as integrações entre linguagens da aplicação."
+("Leonardo Areias Rodovalho", "22101570", "Test Analyst DBA: Apto a separar os conteúdos do site, e popular as tabelas do banco de dados, fazendo assim as integrações entre linguagens da aplicação."
 , "/static/imagens/leos.png"),
 ("Pedro Henrique Moreira da Silva", "22201914", "Front-End Analyst: Apto a auxiliar todo o grupo em todas partes do site, garantindo que ele tenha todas as funções/conteúdos que foram especificados."
 ,"/static/imagens/pedrom.png"),

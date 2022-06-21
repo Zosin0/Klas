@@ -24,7 +24,31 @@ header{
   padding: 25px 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 30px;
+  background-image: linear-gradient(
+    -225deg,
+    #00BFFF 0%,
+    #44107a 29%,
+    #00FA9A 67%,
+    #C71585 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 30px;
   }
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 
 .logo img{
   height: 80px;
@@ -360,7 +384,7 @@ button:hover{
     display: block;
     margin: 40px auto;
     text-align: center;
-    border: 2px solid #3498db;
+    border: 2px solid #663399;
     padding: 14px 10px;
     width: 300px;
     outline: none;
@@ -371,7 +395,7 @@ button:hover{
 }
 .form-group input[type = "email"]:focus, .form-group input[type= "password"]:focus{
     width: 400px;
-    border-color: #3498db;
+    border-color: #663399;
 
 }
 
@@ -381,7 +405,7 @@ button:hover{
     display: block;
     margin: 10px auto;
     text-align: center;
-    border: 2px solid #2ecc71;
+    border: 2px solid #00FA9A;
     padding: 10px 8px;
     width: 225px;
     outline: none;
@@ -397,7 +421,7 @@ button:hover{
     display: block;
     margin: 10px auto;
     text-align: center;
-    border: 2px solid #2ecc71;
+    border: 2px solid #00FA9A;
     padding: 10px 8px;
     width: 225px;
     outline: none;
@@ -467,3 +491,13 @@ button:hover{
 }
 
 
+.table-table-dark{
+
+    position: absolute;
+    right: 10%;
+    left: 10%;
+    background: #191919;
+    font-weight: 500;
+    text-align: center;
+    color:white;
+    }

@@ -30,10 +30,11 @@ def menu():
 @app.route('/times')
 def times():
     # Consultando dados na tabela
-    sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
+    headings = ("Nome", "RA", "Função", "Foto")
     for (idt, nome, desc, ra, path) in cs:
         imagens += "<TR>\n"
         imagens += f"<TD>{nome}</TD>\n"
@@ -41,12 +42,12 @@ def times():
         imagens += f"<TD>{desc}</TD>\n"
         imagens += f"<TD><IMG SRC={path}></TD>\n"
         imagens += "</TR>\n"
-    return render_template('times.html', imagens=imagens)
+    return render_template('times.html', imagens=imagens, headings=headings)
 
 
 @app.route('/plataformas')
 def plataformas():
-    sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = sql.consultar(comando, [])
     dados = ''
@@ -65,7 +66,7 @@ def plataformas():
 
 @app.route('/linguagens')
 def linguagens():
-    sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ''
@@ -123,7 +124,7 @@ def cursos_gratis():
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
+    sql = bd.SQL('root', 'uniceub', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -143,7 +144,7 @@ def registro():
             flash('Senhas diferentes!', category='erro')
 
         else:
-            sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
+            sql = bd.SQL("root", "uniceub", "Klas")
             comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
             try:
                 cs = sql.executar(comando, (email, firstName, generate_password_hash(password1, method='sha256')))
@@ -160,7 +161,7 @@ def registro():
 def login():
 
     if request.method == 'POST':
-        sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
+        sql = bd.SQL('root', 'uniceub', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
         user = sql.consultar('select email_usuario from tbUsuarios where email_usuario=%s',
