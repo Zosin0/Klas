@@ -1,20 +1,16 @@
-import mysql.connector
 from util import bd
-import os
-from flask import Flask, render_template, flash, request, redirect, url_for, Blueprint
-from werkzeug.utils import secure_filename
+from flask import render_template, flash, request, redirect, Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
+from __init__ import create_app, db
+from classes import User
 
-UPLOAD_FOLDER = 'C:\\temp\\Klas\\Klas\\static\\imagens'
+
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 main = Blueprint('main', __name__)
-app.secret_key = 'projetinho pai'
+app = create_app()
+
 
 
 def allowed_file(filename):
@@ -22,12 +18,12 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/')
+@main.route('/')
 def menu():
-    return render_template('home.html')
+    return render_template('home.html', user=current_user)
 
 
-@app.route('/times')
+@main.route('/times')
 def times():
     # Consultando dados na tabela
     sql = bd.SQL("root", "uniceub", "Klas")
@@ -45,7 +41,7 @@ def times():
     return render_template('times.html', imagens=imagens, headings=headings)
 
 
-@app.route('/plataformas')
+@main.route('/plataformas')
 def plataformas():
     sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from tbPlataformas;'
@@ -64,7 +60,7 @@ def plataformas():
     return render_template('plataformas.html', dados=dados)
 
 
-@app.route('/linguagens')
+@main.route('/linguagens')
 def linguagens():
     sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from linguagens;'
@@ -83,12 +79,12 @@ def linguagens():
     return render_template('linguagens.html', infos=infos)
 
 
-@app.route('/cursos')
+@main.route('/cursos')
 def cursos():
     return render_template('cursos.html', cursos=cursos)
 
 
-@app.route('/cursos_pagos')
+@main.route('/cursos_pagos')
 def cursos_pagos():
     sql = bd.SQL("lucas", "1234", "Klas")
     comando = 'select idCursoPago, nmeCursoPago, descCursoPago, link_curso_pago from tbCursoPago;'
@@ -105,7 +101,7 @@ def cursos_pagos():
     return render_template('cursos_pagos.html', cursosp=cursosp)
 
 
-@app.route('/cursos_gratis')
+@main.route('/cursos_gratis')
 def cursos_gratis():
     sql = bd.SQL("lucas", "1234", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
@@ -122,16 +118,21 @@ def cursos_gratis():
     return render_template('cursos_gratis.html', cursosg=cursosg)
 
 
-@app.route('/registro', methods=['GET', 'POST'])
+@main.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('root', 'uniceub', 'Klas')
+    sql = bd.SQL('root', '123456', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        if len(email) < 4:
+        user = User.query.filter_by(email=email).first()
+
+        if user:
+            flash('Email já cadastrado.', category='erro')
+
+        elif len(email) < 4:
             flash('Email inválido!', category='erro')
 
         elif len(firstName) < 2:
@@ -144,34 +145,27 @@ def registro():
             flash('Senhas diferentes!', category='erro')
 
         else:
-            sql = bd.SQL("root", "uniceub", "Klas")
-            comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
-            try:
-                cs = sql.executar(comando, (email, firstName, generate_password_hash(password1, method='sha256')))
-                flash('Conta criada!', category='sucesso')
-                return redirect('/login')
+            novo_usuario = User(email=email, first_name=firstName, password=generate_password_hash(password1, method='sha256'))
+            db.session.add(novo_usuario)
+            db.session.commit()
+            flash('Conta criada com sucesso!', category='sucesso')
+            return redirect('/')
 
-            except mysql.connector.IntegrityError:
-                flash('Email já cadastrado!', category='erro')
 
     return render_template('sign_up.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@main.route('/login', methods=['GET', 'POST'])
 def login():
 
     if request.method == 'POST':
-        sql = bd.SQL('root', 'uniceub', 'Klas')
+        sql = bd.SQL('root', '123456', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
-        user = sql.consultar('select email_usuario from tbUsuarios where email_usuario=%s',
-                             (email,)).fetchone()
-
-        check_password = sql.consultar('select senha_usuario from tbUsuarios where email_usuario=%s',
-                                       (email,)).fetchone()
+        user = User.query.filter_by(email=email).first()
 
         if user:
-            if check_password_hash(str(check_password[0]), senha):
+            if check_password_hash(user.password, senha):
                 flash('Login efetuado com sucesso!', category='sucesso')
                 login_user(user, remember=True)
                 return redirect('/')
@@ -182,10 +176,10 @@ def login():
         else:
             flash('Email ou senha inválidos.', category='erro')
 
-    return render_template('login.html')
+    return render_template('login.html', user=current_user)
 
 
-@app.route('/logout')
+@main.route('/logout')
 @login_required
 def logout():
     logout_user()
