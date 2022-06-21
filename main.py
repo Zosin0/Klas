@@ -24,6 +24,7 @@ def menu():
 
 
 @main.route('/times')
+@login_required
 def times():
     # Consultando dados na tabela
     sql = bd.SQL("root", "uniceub", "Klas")
@@ -42,6 +43,7 @@ def times():
 
 
 @main.route('/plataformas')
+@login_required
 def plataformas():
     sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from tbPlataformas;'
@@ -61,6 +63,7 @@ def plataformas():
 
 
 @main.route('/linguagens')
+@login_required
 def linguagens():
     sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from linguagens;'
@@ -80,11 +83,13 @@ def linguagens():
 
 
 @main.route('/cursos')
+@login_required
 def cursos():
     return render_template('cursos.html', cursos=cursos)
 
 
 @main.route('/cursos_pagos')
+@login_required
 def cursos_pagos():
     sql = bd.SQL("lucas", "1234", "Klas")
     comando = 'select idCursoPago, nmeCursoPago, descCursoPago, link_curso_pago from tbCursoPago;'
@@ -102,6 +107,7 @@ def cursos_pagos():
 
 
 @main.route('/cursos_gratis')
+@login_required
 def cursos_gratis():
     sql = bd.SQL("lucas", "1234", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
@@ -152,7 +158,7 @@ def registro():
             return redirect('/')
 
 
-    return render_template('sign_up.html')
+    return render_template('sign_up.html', user=current_user)
 
 
 @main.route('/login', methods=['GET', 'POST'])
