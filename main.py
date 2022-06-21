@@ -1,3 +1,5 @@
+import warnings
+
 from util import bd
 from flask import render_template, flash, request, redirect, Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -27,7 +29,7 @@ def menu():
 @login_required
 def times():
     # Consultando dados na tabela
-    sql = bd.SQL("root", "123456", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
@@ -45,7 +47,7 @@ def times():
 @main.route('/plataformas')
 @login_required
 def plataformas():
-    sql = bd.SQL("root", "123456", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = sql.consultar(comando, [])
     dados = ''
@@ -65,7 +67,7 @@ def plataformas():
 @main.route('/linguagens')
 @login_required
 def linguagens():
-    sql = bd.SQL("root", "123456", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ''
@@ -91,7 +93,7 @@ def cursos():
 @main.route('/cursos_pagos')
 @login_required
 def cursos_pagos():
-    sql = bd.SQL("lucas", "123456", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select idCursoPago, nmeCursoPago, descCursoPago, link_curso_pago from tbCursoPago;'
     cs = sql.consultar(comando, [])
     cursosp = ''
@@ -109,24 +111,37 @@ def cursos_pagos():
 @main.route('/cursos_gratis')
 @login_required
 def cursos_gratis():
-    sql = bd.SQL("lucas", "123456", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
     cs = sql.consultar(comando, [])
     cursosg = ''
 
     for (idt, nome, desc, link) in cs:
-        cursosg += f"<TR>\n"
-        cursosg += f"<TD>{nome}</TD>\n"
-        cursosg += f"<TD>#{desc}</TD>\n"
-        cursosg += f"<TD>{link}</TD>\n"
-        cursosg += "</TR>\n"
+        cursosg+='''
+        <div class ="curso-1">
+        <h1> {} </h1>
+        <iframe
+        width = "560"
+        height = "315"
+        src = "{}"
+        title = "YouTube video player"
+        frameborder = "0"
+        allow = "accelerometer; autoplay;
+        clipboard - write;
+        encrypted - media;
+        gyroscope;
+        picture - in -picture"
+        allowfullscreen></iframe>
+        </div>
+     '''.format(nome, link)
+
 
     return render_template('cursos_gratis.html', cursosg=cursosg, user=current_user)
 
 
 @main.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('root', '123456', 'Klas')
+    sql = bd.SQL('root', 'uniceub', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -165,7 +180,7 @@ def registro():
 def login():
 
     if request.method == 'POST':
-        sql = bd.SQL('root', '123456', 'Klas')
+        sql = bd.SQL('root', 'uniceub', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
         user = User.query.filter_by(email=email).first()
