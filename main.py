@@ -27,7 +27,7 @@ def menu():
 @login_required
 def times():
     # Consultando dados na tabela
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "123456", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
@@ -39,13 +39,13 @@ def times():
         imagens += f"<TD>{desc}</TD>\n"
         imagens += f"<TD><IMG SRC={path}></TD>\n"
         imagens += "</TR>\n"
-    return render_template('times.html', imagens=imagens, headings=headings)
+    return render_template('times.html', imagens=imagens, headings=headings, user=current_user)
 
 
 @main.route('/plataformas')
 @login_required
 def plataformas():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "123456", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = sql.consultar(comando, [])
     dados = ''
@@ -59,13 +59,13 @@ def plataformas():
         dados += f"<TD><IMG SRC={path} alt={nome}></TD></a>\n"
         dados += "</TR>\n"
 
-    return render_template('plataformas.html', dados=dados)
+    return render_template('plataformas.html', dados=dados, user=current_user)
 
 
 @main.route('/linguagens')
 @login_required
 def linguagens():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "123456", "Klas")
     comando = 'select * from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ''
@@ -79,19 +79,19 @@ def linguagens():
         infos += f"<TD><IMG SRC={path} alt={nome}></TD>\n"
         infos += "</TR>\n"
 
-    return render_template('linguagens.html', infos=infos)
+    return render_template('linguagens.html', infos=infos, user=current_user)
 
 
 @main.route('/cursos')
 @login_required
 def cursos():
-    return render_template('cursos.html', cursos=cursos)
+    return render_template('cursos.html', cursos=cursos, user=current_user)
 
 
 @main.route('/cursos_pagos')
 @login_required
 def cursos_pagos():
-    sql = bd.SQL("lucas", "1234", "Klas")
+    sql = bd.SQL("lucas", "123456", "Klas")
     comando = 'select idCursoPago, nmeCursoPago, descCursoPago, link_curso_pago from tbCursoPago;'
     cs = sql.consultar(comando, [])
     cursosp = ''
@@ -103,13 +103,13 @@ def cursos_pagos():
         cursosp += f"<TD>{link}</TD>\n"
         cursosp += "</TR>\n"
 
-    return render_template('cursos_pagos.html', cursosp=cursosp)
+    return render_template('cursos_pagos.html', cursosp=cursosp, user=current_user)
 
 
 @main.route('/cursos_gratis')
 @login_required
 def cursos_gratis():
-    sql = bd.SQL("lucas", "1234", "Klas")
+    sql = bd.SQL("lucas", "123456", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
     cs = sql.consultar(comando, [])
     cursosg = ''
@@ -121,7 +121,7 @@ def cursos_gratis():
         cursosg += f"<TD>{link}</TD>\n"
         cursosg += "</TR>\n"
 
-    return render_template('cursos_gratis.html', cursosg=cursosg)
+    return render_template('cursos_gratis.html', cursosg=cursosg, user=current_user)
 
 
 @main.route('/registro', methods=['GET', 'POST'])
