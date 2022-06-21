@@ -145,7 +145,7 @@ def registro():
             sql = bd.SQL("root", "a3m5vKu6vznNXTp", "Klas")
             comando = 'insert into tbUsuarios(email_usuario, nome_usuario, senha_usuario) values(%s, %s, %s)'
             try:
-                cs = sql.executar(comando, (email, firstName, password1))
+                cs = sql.executar(comando, (email, firstName, generate_password_hash(password1, method='sha256')))
                 flash('Conta criada!', category='sucesso')
                 return redirect('/login')
 
@@ -163,12 +163,20 @@ def login():
         sql = bd.SQL('root', 'a3m5vKu6vznNXTp', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
-        row = sql.consultar('select * from tbUsuarios where email_usuario=%s and senha_usuario=%s',
-                            (email, senha)).fetchone()
+        row = sql.consultar('select email_usuario from tbUsuarios where email_usuario=%s',
+                            (email,)).fetchone()
+
+        check_password = sql.consultar('select senha_usuario from tbUsuarios where email_usuario=%s', (email,)).fetchone()
+
 
         if row:
-            flash('Login efetuado com sucesso!', category='sucesso')
-            return redirect('/')
+            print(check_password[0])
+            if check_password_hash(str(check_password[0]), senha):
+                flash('Login efetuado com sucesso!', category='sucesso')
+                return redirect('/')
+
+            else:
+                flash('Email ou senha inválidos.', category='erro')
 
         else:
             flash('Email ou senha inválidos.', category='erro')

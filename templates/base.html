@@ -33,6 +33,7 @@
         </div>
     </header>
 
+
     {% with mensagens = get_flashed_messages(with_categories=true) %}
         {% if mensagens %}
             {% for category, mensagem in mensagens %}
