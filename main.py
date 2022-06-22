@@ -94,16 +94,18 @@ def cursos():
 @login_required
 def cursos_pagos():
     sql = bd.SQL("root", "1234", "Klas")
-    comando = 'select idCursoPago, nmeCursoPago, descCursoPago, link_curso_pago from tbCursoPago;'
+    comando = 'SELECT C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas FROM tbcursopago C INNER JOIN tbplataformas P ON P.idPlataformas = C.cod_plataforma;'
     cs = sql.consultar(comando, [])
-    cursosp = ''
-
-    for (idt, nome, desc, link) in cs:
-        cursosp += f"<TR>\n"
-        cursosp += f"<TD>{nome}</TD>\n"
-        cursosp += f"<TD>#{desc}</TD>\n"
-        cursosp += f"<TD>{link}</TD>\n"
-        cursosp += "</TR>\n"
+    cursosp=''
+    for (idt, nome, desc, link, path) in cs:
+        cursosp = '''
+              <div class="curso-2">
+                <h1>{}</h1>
+                <h3>{}</h3>
+                <a href={}><img src={}/>  </a>
+            </div>
+        
+        '''.format(nome, desc, link, path)
 
     return render_template('cursos_pagos.html', cursosp=cursosp, user=current_user)
 
