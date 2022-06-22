@@ -324,7 +324,7 @@ header{
     justify-content: center;
     height: 50vh;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 40px;
     background-color: #41B3F4;
 }
 
@@ -504,9 +504,8 @@ button:hover{
 
 .curso-1{
     display: block;
-    margin-left: 500px;
-    margin-top: 100px;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+    width: 50%;
+    padding-bottom: 50px;
 
 }

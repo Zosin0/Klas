@@ -29,7 +29,7 @@ def menu():
 @login_required
 def times():
     # Consultando dados na tabela
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
@@ -47,7 +47,7 @@ def times():
 @main.route('/plataformas')
 @login_required
 def plataformas():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = sql.consultar(comando, [])
     dados = ''
@@ -67,7 +67,7 @@ def plataformas():
 @main.route('/linguagens')
 @login_required
 def linguagens():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select * from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ''
@@ -93,7 +93,7 @@ def cursos():
 @main.route('/cursos_pagos')
 @login_required
 def cursos_pagos():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select idCursoPago, nmeCursoPago, descCursoPago, link_curso_pago from tbCursoPago;'
     cs = sql.consultar(comando, [])
     cursosp = ''
@@ -111,7 +111,7 @@ def cursos_pagos():
 @main.route('/cursos_gratis')
 @login_required
 def cursos_gratis():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
     cs = sql.consultar(comando, [])
     cursosg = ''
@@ -119,7 +119,8 @@ def cursos_gratis():
     for (idt, nome, desc, link) in cs:
         cursosg+='''
         <div class ="curso-1">
-        <h1> {} </h1>
+        <h1 style="text-align: justify; padding-bottom: 20px;"> {} </h1>
+        <h3 style="text-align: justify; padding-bottom: 20px;"> {} </h3>
         <iframe
         width = "560"
         height = "315"
@@ -133,7 +134,7 @@ def cursos_gratis():
         picture - in -picture"
         allowfullscreen></iframe>
         </div>
-     '''.format(nome, link)
+     '''.format(nome, desc, link)
 
 
     return render_template('cursos_gratis.html', cursosg=cursosg, user=current_user)
@@ -141,7 +142,7 @@ def cursos_gratis():
 
 @main.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('root', 'uniceub', 'Klas')
+    sql = bd.SQL('root', '1234', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -180,7 +181,7 @@ def registro():
 def login():
 
     if request.method == 'POST':
-        sql = bd.SQL('root', 'uniceub', 'Klas')
+        sql = bd.SQL('root', '1234', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
         user = User.query.filter_by(email=email).first()
