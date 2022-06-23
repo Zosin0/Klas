@@ -56,8 +56,8 @@ CREATE TABLE tbCursoPago(
     nmeCursoPago VARCHAR(50) NOT NULL,
     descCursoPago VARCHAR(500) NOT NULL,
 	link_curso_pago VARCHAR(300) NOT NULL,
-    cod_plataforma INT UNIQUE,
-	cod_linguagem INT UNIQUE,
+    cod_plataforma INT,
+	cod_linguagem INT,
 
     foreign key (cod_plataforma) references tbPlataformas(idPlataformas),
     foreign key (cod_linguagem) references linguagens(idLinguagem)
@@ -133,19 +133,19 @@ INSERT INTO linguagens(nmeLinguagem, popularidadeLinguagem, salarioLinguagem, de
 ("C/C++", 6, "Média de Salário no Mundo: $55.363", "C++ é a extensão da linguagem C, porém completa. É rápida e estável para aplicativos e sistemas com gráficos avançados, mas seu aprendizado pode ser mais demorado devido à sua complexidade. A linguagem é bastante usada para desenvolver aplicações mais pesadas e de alto desempenho.",
 "/static/imagens/c.png");
 
-INSERT INTO tbCursoPago(nmeCursoPago, descCursoPago, link_curso_pago) VALUES
+INSERT INTO tbCursoPago(nmeCursoPago, descCursoPago, link_curso_pago, cod_plataforma, cod_linguagem) VALUES
 ("Python Completo - UDEMY", "Curso completo de Python na Udemy- Algoritmos, estruturas de dados, fundamentos, orientação a objeto, programação funcional e muito mais...",
-"https://www.udemy.com/course/curso-python-3-completo/"),
+"https://www.udemy.com/course/curso-python-3-completo/", 10, 2),
 ("JavaScript Completo - UDEMY", "Domine Web com 15 Cursos + Projetos: Javascript, Angular, React, Next Vue, Node, HTML, CSS, jQuery, Bootstrap, Webpack, Gulp, MySQL...",
-"https://www.udemy.com/course/curso-web/"),
-("Java Completo - ALURA", "Curso mais didático e completo de Java e OO, UML, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB e muito mais...",
-"https://www.udemy.com/course/java-curso-completo/"),
+"https://www.udemy.com/course/curso-web/", 10, 1),
+("Java Completo - UDEMY", "Curso mais didático e completo de Java e OO, UML, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB e muito mais...",
+"https://www.udemy.com/course/java-curso-completo/", 10, 3),
 ("C/C++ Completo - ALURA", "Conheça os recursos da linguagem C, desde a programação com if, else, while e funções até manipulação de arrays, ponteiros, tipos e recursão. Do gcc ao seu executável!",
-"https://www.alura.com.br/cursos-online-programacao/linguagem-c"),
+"https://www.alura.com.br/cursos-online-programacao/linguagem-c", 9, 6),
 ("C# Completo - UDEMY", "Aprenda C# em um só curso, Algoritmos, Estrutura de Dados, Fundamentos, OO, Coleções, Lambdas, LINQ e vários recursos!",
-"https://www.udemy.com/course/curso-c-sharp/"),
+"https://www.udemy.com/course/curso-c-sharp/", 10, 5),
 ("PHP - UDEMY", "Você vai desenvolver com uma das linguagens mais populares no mercado que evoluiu muito em todos os requisitos nos últimos anos. Use corretamente a orientação a objetos com o PHP. Aprenda a lidar com as coleções. Aproveite o Composer e muito mais!",
-"https://www.alura.com.br/cursos-online-programacao/php");
+"https://www.alura.com.br/cursos-online-programacao/php", 9, 4);
 
 INSERT INTO tbCursoGratis(nmeCursoGratis, descCursoGratis, link_curso_gratis) VALUES
 ("Python - Curso em Vídeo",
@@ -175,4 +175,8 @@ Se você quer aprender programação, quer se tornar um programador de qualidade
 "Neste Curso de PHP Completo vamos aprender uma das linguagens de programação mais utilizadas no mundo. O PHP é uma excelente linguagem de programação para aprender por que é completa, open source e muito fácil de entender para quem é iniciante.",
 "https://www.youtube.com/embed/videoseries?list=PL2Fdisxwzt_cOvOTUJhwEOxNV59wTs3ac");
 
+SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas FROM tbCursoPago C
+INNER JOIN tbPlataformas P
+ON P.idPlataformas = C.cod_plataforma;
 
+SELECT * FROM user;
