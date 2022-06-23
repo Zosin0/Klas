@@ -548,5 +548,7 @@ button:hover{
     padding-bottom: 50px;
 
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
