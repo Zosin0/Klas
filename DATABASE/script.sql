@@ -64,15 +64,6 @@ CREATE TABLE tbCursoPago(
 
 );
 
-create table tbUsuarios(
-	idUsuario int auto_increment primary key,
-    email_usuario varchar(50),
-    nome_usuario varchar(50),
-    senha_usuario varchar(1000),
-    unique key(email_usuario)
-);
-
-
 
 -- INSERT ALUNOS (COMPLETO) --
 INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUES
@@ -175,8 +166,3 @@ Se você quer aprender programação, quer se tornar um programador de qualidade
 "Neste Curso de PHP Completo vamos aprender uma das linguagens de programação mais utilizadas no mundo. O PHP é uma excelente linguagem de programação para aprender por que é completa, open source e muito fácil de entender para quem é iniciante.",
 "https://www.youtube.com/embed/videoseries?list=PL2Fdisxwzt_cOvOTUJhwEOxNV59wTs3ac");
 
-SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas FROM tbCursoPago C
-INNER JOIN tbPlataformas P
-ON P.idPlataformas = C.cod_plataforma;
-
-SELECT * FROM user;

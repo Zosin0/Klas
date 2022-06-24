@@ -98,14 +98,14 @@ def cursos_pagos():
     cs = sql.consultar(comando, [])
     cursosp=''
     for (idt, nome, desc, link, path) in cs:
-        cursosp += '''
+        cursosp += f'''
               <div class="curso-2">
-                <h1>{}</h1>
-                <h3>{}</h3>
-                <a target="_blank" href={}><img src={}/>  </a>
+                <h1>{nome}</h1>
+                <h3>{desc}</h3>
+                <a target="_blank" href={link}><img src={path}/>  </a>
             </div>
         
-        '''.format(nome, desc, link, path)
+        '''
 
     return render_template('cursos_pagos.html', cursosp=cursosp, user=current_user)
 
@@ -119,14 +119,14 @@ def cursos_gratis():
     cursosg = ''
 
     for (idt, nome, desc, link) in cs:
-        cursosg+='''
+        cursosg += f'''
         <div class ="curso-1">
-        <h1 style="text-align: justify; padding-bottom: 20px;"> {} </h1>
-        <h3 style="text-align: justify; padding-bottom: 20px;"> {} </h3>
+        <h1 style="text-align: justify; padding-bottom: 20px;"> {nome} </h1>
+        <h3 style="text-align: justify; padding-bottom: 20px;"> {desc} </h3>
         <iframe
         width = "560"
         height = "315"
-        src = "{}"
+        src = "{link}"
         title = "YouTube video player"
         frameborder = "0"
         allow = "accelerometer; autoplay;
@@ -136,7 +136,7 @@ def cursos_gratis():
         picture - in -picture"
         allowfullscreen></iframe>
         </div>
-     '''.format(nome, desc, link)
+     '''
 
 
     return render_template('cursos_gratis.html', cursosg=cursosg, user=current_user)
