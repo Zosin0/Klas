@@ -267,9 +267,9 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
-  height: 60vh;
-
+  height: 70vh;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background: rgba( 26, 240, 253, 0.35 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur(10.5px);
@@ -294,17 +294,17 @@ header{
     justify-content: center;
     height: 50vh;
     width: 100%;
-    padding-top: 20px;
 
 }
 
 .texto1{
+    margin-top: auto;
     text-align: center;
     font-style: normal;
 
 }
 .texto-sobre{
-  margin-top: 0px;
+  margin-top: auto;
   font-family: 'Bai Jamjuree';
   font-weight: 700;
   font-size: 100px;
@@ -322,18 +322,15 @@ header{
   color: #767E7E;
 }
 .sobre{
-  margin-top: -40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
   padding-top: 20px;
   padding-bottom: 50px;
 }
 .conteudo-sobre{
   display: block;
   margin: auto;
-
 }
 .imagens-sobre{
   padding: 5px;
@@ -342,18 +339,71 @@ header{
   max-width: 150px;
   max-height: 150px;
 }
-
 .fundo3{
-    display: flex;
-    justify-content: center;
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     padding-top: 40px;
     background-color: #41B3F4;
 }
 
+.texto-div3{
+    display: inline-flex;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+    color: #414449;
+}
+.texto-registre{
+    margin-top: 20px;
+    margin-left: 212px;
+}
+.texto-login{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.ret{
+    width: 8px;
+    height: 133px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: #718176;
+}
+.botoes{
+    display:block;
+}
+.botao-reg{
+    display: block;
+    margin-top: 30px;
+    margin-left: 428px;
+    width: 240px;
+    height: 60px;
+    color: white;
+    background: #1400FF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.botao-log{
+    margin-top: 20px;
+    margin-left: 428px;
+    width: 240px;
+    height: 60px;
+    color: white;
+    background: #1400FF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+
 
 /*CSS CURSOS*/
+.main-cursos{
+    color: white;
+}
 .butao-cursos{
   display: block;
   margin-right: auto;
@@ -377,17 +427,12 @@ button:hover{
   transform: scale(1.05);
 }
 
-
 /*LOGIN*/
-
 .form-group h3{
     color: white;
     text-transform: uppercase;
     font-weight: 600;
-
 }
-
-
 
 .form-group{
     padding: 200px;
@@ -397,7 +442,6 @@ button:hover{
     text-align: center;
     color:white;
     grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
-
 }
 
 @media (max-width:770px){
@@ -423,7 +467,6 @@ button:hover{
 .form-group input[type = "email"]:focus, .form-group input[type= "password"]:focus{
     width: 400px;
     border-color: #663399;
-
 }
 
 .form-group input[id = "login"]{
