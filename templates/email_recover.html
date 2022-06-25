@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Recuperação de Senha{% endblock %}
+
+{% block content %}
+    <script type="text/javascript" src="email_holder.js"></script>
+
+    <form method="POST">
+        <div class="email-recover">
+            <h3>Informe o Email abaixo</h3>
+            <label for="email-recover"></label>
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email-recover"
+                    name="email-recover"
+                />
+            <label for="enviar"></label>
+                <input
+                type="submit"
+                class="form-control"
+                id="enviar"
+                name="Enviar"
+                value = "Enviar"
+                onclick="handleSubmit()"
+                />
+
+
+        </div>
+
+
+
+    </form>
+
+
+{% endblock %}

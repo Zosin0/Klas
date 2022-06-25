@@ -4,8 +4,10 @@ from util import bd
 from flask import render_template, flash, request, redirect, Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
-from __init__ import create_app, db
+from __init__ import create_app, db, mail
 from classes import User
+from flask_mail import Message
+
 
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -28,7 +30,7 @@ def menu():
 @main.route('/times')
 @login_required
 def times():
-    # Consultando dados na tabela
+
     sql = bd.SQL("root", "123456", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
@@ -208,6 +210,48 @@ def login():
 def logout():
     logout_user()
     return redirect('/login')
+
+
+
+@main.route('/email-recover', methods=['GET', 'POST'])
+def email_recover():
+    # In Progress
+    if request.method == 'POST':
+
+        #     email = request.form.get('email-recover')
+        #
+        #     msg = Message('Olá!', sender='projetoceub@gmail.com', recipients=[email])
+        #     msg.body = 'Clique no link a seguir para redefinir sua senha: http://127.0.0.1:5000/'
+        #     mail.send(msg)
+        #     flash('Email enviado com sucesso!', category='sucesso')
+        return redirect('/password-recover')
+
+
+
+    return render_template('email_recover.html', user=current_user)
+
+
+@main.route('/password-recover', methods=['GET', 'POST'])
+def password_recover():
+    # In Progress
+    # if request.method == 'POST':
+    #     password1 = request.form.get('password1')
+    #     password2 = request.form.get('password2')
+    #
+    #
+    #     if len(password1) < 8:
+    #         flash('A senha precisa ter 8 caracteres!', category='erro')
+    #
+    #     elif password2 != password1:
+    #         flash('Senhas diferentes.', category='erro')
+    #
+    #     else:
+    #         new_password = User.session.query
+
+
+
+    return render_template('password_recover.html', user=current_user)
+
 
 
 if __name__ == '__main__':
