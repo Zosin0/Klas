@@ -2,11 +2,11 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
-
+from flask_mail import Mail
 
 db = SQLAlchemy()
 DB_NAME = 'Klas'
-
+mail = Mail()
 
 
 def create_app():
@@ -16,9 +16,15 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = 'C:\\temp\\Klas\\Klas\\static\\imagens'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/Klas'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    app.config['MAIL_PORT'] = 465
+    app.config['MAIL_USERNAME'] = 'projetoceub@gmail.com'
+    app.config['MAIL_PASSWORD'] = 'okclnmbvgopxiamc'
+    app.config['MAIL_USE_TLS'] = False
+    app.config['MAIL_USE_SSL'] = True
 
     db.init_app(app)
-
+    mail.init_app(app)
 
 
 

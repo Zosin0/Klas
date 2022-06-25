@@ -1,12 +1,12 @@
 import warnings
 
 from util import bd
-from flask import render_template, flash, request, redirect, Blueprint
+from flask import render_template, flash, request, redirect, Blueprint, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
-from __init__ import create_app, db
+from __init__ import create_app, db, mail
 from classes import User
-
+from flask_mail import Message
 
 
 
@@ -215,17 +215,23 @@ def logout():
 
 @main.route('/password-recover', methods=['GET', 'POST'])
 def password_recover():
+
     global email_global
     if request.method == 'POST':
         email_global = request.form.get('email-recover')
 
         user = User.query.filter_by(email=email_global).first()
 
-
         if user:
-            flash('Email Validado!', category='sucesso')
-            return redirect('/password-retype')
+            msg = Message('Klas: Redefinição de senha.', sender='projetoceub@gmail.com', recipients=[email_global])
+            link = url_for('main.password_retype', _external=True)
+            msg.body = f'Siga o link para a redefinição da senha. {link}'
+            mail.send(msg)
+            flash('Email Enviado com sucesso!', category='sucesso')
+            return redirect('/')
 
+        else:
+            flash('Este email não está cadastrado no nosso sistema.', category='erro')
 
 
     return render_template('password_recover.html', user=current_user)
@@ -235,24 +241,28 @@ def password_recover():
 @main.route('/password-retype', methods=['GET', 'POST'])
 def password_retype():
 
-    user = User.query.filter_by(email=email_global).first()
+    try:
+        user = User.query.filter_by(email=email_global).first()
 
-    if request.method == 'POST':
+        if request.method == 'POST':
 
-        new_password = request.form.get('password-recover')
-        confirm_password = request.form.get('confirm-password')
+            new_password = request.form.get('password-recover')
+            confirm_password = request.form.get('confirm-password')
 
-        if len(new_password) < 8:
-            flash('A senha deve ter pelo menos 8 caracteres.', category='erro')
+            if len(new_password) < 8:
+                flash('A senha deve ter pelo menos 8 caracteres.', category='erro')
 
-        elif confirm_password != new_password:
-            flash('A senhas são diferentes.', category='erro')
+            elif confirm_password != new_password:
+                flash('A senhas são diferentes.', category='erro')
 
-        else:
-            user.password = generate_password_hash(new_password, method='sha256')
-            db.session.commit()
-            flash('A senha foi alterada com sucesso!', category='sucesso')
-            return redirect('/login')
+            else:
+                user.password = generate_password_hash(new_password, method='sha256')
+                db.session.commit()
+                flash('A senha foi alterada com sucesso!', category='sucesso')
+                return redirect('/login')
+
+    except NameError:
+        return redirect('/password-recover')
 
 
     return render_template('password_retype.html', user=current_user)
