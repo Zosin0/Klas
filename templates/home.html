@@ -12,16 +12,17 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Linguagens', 'Salário'],
+          ['Python', 56670],
+          ['C/C++',  58469],
+          ['JavaScript',  55690],
+          ['C#', 57433],
+          ['PHP', 64000],
+          ['Java', 55690]
         ]);
 
         var options = {
-            title: 'My Daily Activities',
+            title: '',
             backgroundColor: '#affafe',
             is3D: true,
         };
@@ -34,23 +35,23 @@
     </script>
 
 
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Linguagens', 'Mais populares'],
+          ['Python',     11],
+          ['C/C++',      2],
+          ['JavaScript',  2],
+          ['C#', 2],
+          ['PHP',    7],
+          ['Java', 10]
         ]);
 
         var options = {
-            title: 'My Daily Activities',
+            title: '',
             backgroundColor: '#affafe',
             is3D: true,
         };
@@ -59,8 +60,6 @@
         chart.draw(data, options);
       }
     </script>
-
-
 
 <!--começar aqui-->
     <main>
@@ -73,7 +72,6 @@
                 </div>
                 <div class="fundo-home"><img width="400px" height="400px" src="\static\Klaslogo.png" alt="Logo"></div>
             </div>
-
 
         <div class="cursos">
             <div class="texto-cursos">
@@ -99,11 +97,9 @@
                     <div id="piechart_3d1" style="width: 500px; height: 400px;"></div>
                 </div>
 
-
                 <div class="texto"><p class="texto-p6">Linguagens mais fáceis de aprender:</p>
                     <div id="piechart_3d2" style="width: 500px; height: 400px;"></div>
                 </div>
-
             </div>
 
             <div class="fundo2">
@@ -153,8 +149,18 @@
                     <button class="botao-log">LOGIN</button>
                 </div>
             </div>
-            <div class="fundo5">
-                <div class="texto-footer"></div>
+            <div class="fundo4">
+                <div class="itens-footer">
+                  <a href="#clique"><p class="texto-footer">SOBRE</p></a>
+                  <a href="/cursos"><p class="texto-footer">CURSOS</p></a>
+                  <a href="/times"><p class="texto-footer">TIME</p></a>
+                  <a href="http://127.0.0.1:5000/"><p class="klas-dev"> KLAS.DEV </p></a>
+                  <a href="https://www.uniceub.br/" target="_blank"><img class="logo-ceub" src="\static\imagens\ceub-icon.png"/></a>
+                  <a href="/login"><p class="texto-footer">SIGN UP</p></a>
+                  <a href="/registro"><p class="texto-footer">SIGN IN</p></a>
+
+                </div>
+                <div class="barra-em-baixo"></div>
             </div>
 
 
