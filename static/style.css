@@ -354,6 +354,10 @@ header{
     letter-spacing: 0.01em;
     color: #414449;
 }
+.botoes-azuis{
+    display: block;
+    padding-bottom: 50px;
+}
 .texto-registre{
     margin-top: 20px;
     margin-left: 212px;
@@ -460,12 +464,9 @@ header{
 
 }
 .texto-abertura{
-    display: block;
     color: white;
     padding-top: 30px;
-    padding-right: 50px;
-    margin-right: 0px;
-    margin-left: 0px;
+    text-indent: 2em;
 }
 
 
@@ -497,9 +498,9 @@ button:hover{
 /*CURSOS-PAGOS*/
 .texto-x-imagem{
     display: flex;
-    padding-right: 170px;
-    padding-bottom: 60px;
-
+    padding-right: 40px;
+    padding-bottom: 200px;
+    margin-top: 6%;
 }
 .textos-cursop{
     display: block;
@@ -512,6 +513,8 @@ button:hover{
 }
 .desc-cursop{
     padding-bottom: 15px;
+    width: 600px;
+    margin-left: 1px;
 }
 .link-cursop{
     text-decoration: underline;
@@ -534,7 +537,6 @@ button:hover{
 
 /*CURSOS GRATIS*/
 .texto-imagem-cursog{
-
     display: block;
     justify-content: center;
     margin-top: 50px;
@@ -547,13 +549,14 @@ button:hover{
 .titulo-cursog{
     font-size: 25px;
     padding-bottom: 20px;
-    margin-left: 345px;
+    text-align: center;
 }
 .desc-cursog{
-    width: 65%;
-    margin-left: 275px;
+    width: 50%;
     align-items: center;
-    text-indent: 1.5em;
+    text-align: justify;
+    padding: 10px;
+    text-indent: 1em;
 }
 .imagens-cursog{
     display: block;
@@ -561,26 +564,25 @@ button:hover{
 .assista-cursog{
     font-family: 'Bai Jamjuree';
     font-style: normal;
-    margin-left: 45%;
     font-weight: 700;
     font-size: 25px;
     line-height: 50px;
+    text-align: center;
     letter-spacing: -0.01em;
     color: #A3BAE1;
     text-shadow: 3px 1px 5px rgba(0, 0, 0, 0.65);
     transform: rotate(0.31deg);
-    padding-bottom: 30px;
+    padding-top: 10px;
 }
+
 .espaço-cursog{
       background: rgba(146, 195, 222, 0.9);
       box-shadow: 5px 5px 10px black;
-      width: 571px;
-      height: 276px;
-      margin-left: 32%;
+      width: 579px;
+      height: 278px;
       padding-bottom: 50px;
+      text-align: center;
 }
-
-
 /*LOGIN*/
 .form-group h3{
     color: white;
@@ -588,9 +590,6 @@ button:hover{
     font-weight: 600;
 
 }
-
-
-
 .form-group{
     padding: 200px;
     border-radius: 5px;
@@ -627,7 +626,6 @@ button:hover{
     border-color: #663399;
 
 }
-
 .form-group input[id = "login"]{
     border: 0;
     background: none;
@@ -643,7 +641,6 @@ button:hover{
     transition: 0.25s;
     cursor: pointer;
 }
-
 .form-group input[id = "Registrar"]{
     border: 0;
     background: none;
@@ -659,8 +656,6 @@ button:hover{
     transition: 0.25s;
     cursor: pointer;
 }
-
-
 .form-group input[id = "password_recover"]{
     border: 0;
     background: none;
@@ -677,19 +672,16 @@ button:hover{
     cursor: pointer;
 }
 
-
 .form-group input[type = "submit"]:hover{
     background: @2ecc71;
 }
 
 /*SIGN-UP*/
-
 .sign-up h2{
     color: white;
     text-transform: uppercase;
     font-weight: 500;
 }
-
 .sign-up{
     padding: 200px;
     border-radius: 5px;
@@ -699,7 +691,6 @@ button:hover{
     color:white;
     grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
-
 .sign-up input[type = "email"], .sign-up input[id= "firstName"], .sign-up input[id= "password1"], .sign-up input[id= "password2"]{
     border: 0;
     background: none;
@@ -714,13 +705,11 @@ button:hover{
     border-radius: 24px;
     transition: 0.25s;
 }
-
 .sign-up input[type = "email"]:focus, .sign-up input[id= "firstName"]:focus, .sign-up input[id= "password1"]:focus, .sign-up input[id= "password2"]:focus{
     width: 400px;
     border-color: #663399;
 
 }
-
 .sign-up input[id = "Enviar"]{
     border: 0;
     background: none;
@@ -873,10 +862,5 @@ html {
         padding: 20px;
     }
 }
-
-
-
-
-
 
 
