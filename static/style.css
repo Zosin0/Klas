@@ -242,6 +242,7 @@ header{
   padding-bottom: 80px;
 }
 
+
 .texto-cursos{
   display: block;
   align-content: center;
@@ -266,9 +267,9 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  height: 60vh;
+
   background: rgba( 26, 240, 253, 0.35 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur(10.5px);
@@ -293,16 +294,17 @@ header{
     justify-content: center;
     height: 50vh;
     width: 100%;
+    padding-top: 20px;
 
 }
+
 .texto1{
-    margin-top: auto;
     text-align: center;
     font-style: normal;
 
 }
 .texto-sobre{
-  margin-top: auto;
+  margin-top: 0px;
   font-family: 'Bai Jamjuree';
   font-weight: 700;
   font-size: 100px;
@@ -320,15 +322,18 @@ header{
   color: #767E7E;
 }
 .sobre{
+  margin-top: -40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
   padding-top: 20px;
   padding-bottom: 50px;
 }
 .conteudo-sobre{
   display: block;
   margin: auto;
+
 }
 .imagens-sobre{
   padding: 5px;
@@ -337,121 +342,18 @@ header{
   max-width: 150px;
   max-height: 150px;
 }
+
 .fundo3{
-    height: 60vh;
+    display: flex;
+    justify-content: center;
+    height: 50vh;
     width: 100%;
     padding-top: 40px;
     background-color: #41B3F4;
 }
-.texto-div3{
-    display: inline-flex;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 27px;
-    letter-spacing: 0.01em;
-    color: #414449;
-}
-.texto-registre{
-    margin-top: 20px;
-    margin-left: 212px;
-}
-.texto-login{
-    margin-top: 20px;
-    margin-left: 20px;
-}
-.ret{
-    width: 8px;
-    height: 133px;
-    margin-top: 20px;
-    margin-left: 20px;
-    background-color: #718176;
-}
-.botoes{
-    display:block;
-}
-.botao-reg{
-    display: block;
-    margin-top: 30px;
-    margin-left: 428px;
-    width: 240px;
-    height: 60px;
-    color: white;
-    background: #1400FF;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-}
-.botao-log{
-    margin-top: 20px;
-    margin-left: 428px;
-    width: 240px;
-    height: 60px;
-    color: white;
-    background: #1400FF;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-}
-.fundo4{
-      display: block;
-      height: 30vh;
-      align-items: center;
-      background: #000000;
-}
-.itens-footer{
-    display: inline-flex;
-    margin-top: 70px;
-    padding-left: 200px;
 
-}
-.texto-footer{
-    margin-left: 50px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #FFFFFF;
-}
-.klas-dev{
-    font-family: 'Roboto';
-    margin-left: 50px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 29px;
-    color: #FFFFFF;
-    margin-top: 0px;
-}
-.logo-ceub{
-    margin-left: 50px;
-    width: auto;
-    height: 65px;
-    margin-top: -12px;
-}
-.barra-em-baixo{
-    display: block;
-    width: 1050px;
-    justify-content: center;
-    align-items: center;
-    height: 0px;
-    border: 5px solid #FFFFFF;
-    margin-left: 125px;
-}
+
 /*CSS CURSOS*/
-.main-cursos{
-    display: block;
-    justify-content: center;
-    margin-left: 30%;
-
-}
-.texto-abertura{
-    display: block;
-    color: white;
-    padding-top: 30px;
-    padding-right: 50px;
-    margin-right: 0px;
-    margin-left: 0px;
-}
 .butao-cursos{
   display: block;
   margin-right: auto;
@@ -474,97 +376,18 @@ header{
 button:hover{
   transform: scale(1.05);
 }
-/*CURSOS-PAGOS*/
-.texto-x-imagem{
-    display: flex;
-    padding-right: 170px;
-    padding-bottom: 60px;
 
-}
-.textos-cursop{
-    display: block;
-    color: white;
-    padding: 50px;
-}
-.nome-cursop{
-    font-size: 22px;
-    padding-bottom: 25px;
-}
-.desc-cursop{
-    padding-bottom: 15px;
-}
-.link-cursop{
-    text-decoration: underline;
-}
-.imagens-cursop{
-    display: block;
-    height: 50px;
-    width: auto;
-    padding-left: 150px;
-    margin-top: 50px;
-}
-.linha-baixo{
-    display: block;
-    width: 90%;
-    justify-content: center;
-    height: 0px;
-    margin-left: 50px;
-    border: 5px solid #FFFFFF;
-}
-/*CURSOS GRATIS*/
-.texto-imagem-cursog{
-
-    display: block;
-    justify-content: center;
-    margin-top: 50px;
-}
-.texto-cursog{
-    display: block;
-    color: white;
-    padding-bottom: 30px;
-}
-.titulo-cursog{
-    font-size: 25px;
-    padding-bottom: 20px;
-    margin-left: 345px;
-}
-.desc-cursog{
-    width: 65%;
-    margin-left: 275px;
-    align-items: center;
-    text-indent: 1.5em;
-}
-.imagens-cursog{
-    display: block;
-}
-.assista-cursog{
-    font-family: 'Bai Jamjuree';
-    font-style: normal;
-    margin-left: 45%;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 50px;
-    letter-spacing: -0.01em;
-    color: #A3BAE1;
-    text-shadow: 3px 1px 5px rgba(0, 0, 0, 0.65);
-    transform: rotate(0.31deg);
-    padding-bottom: 30px;
-}
-.espaço-cursog{
-      background: rgba(146, 195, 222, 0.9);
-      box-shadow: 5px 5px 10px black;
-      width: 571px;
-      height: 276px;
-      margin-left: 32%;
-      padding-bottom: 50px;
-}
 
 /*LOGIN*/
+
 .form-group h3{
     color: white;
     text-transform: uppercase;
     font-weight: 600;
+
 }
+
+
 
 .form-group{
     padding: 200px;
@@ -574,6 +397,7 @@ button:hover{
     text-align: center;
     color:white;
     grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+
 }
 
 @media (max-width:770px){
@@ -599,6 +423,7 @@ button:hover{
 .form-group input[type = "email"]:focus, .form-group input[type= "password"]:focus{
     width: 400px;
     border-color: #663399;
+
 }
 
 .form-group input[id = "login"]{
@@ -632,6 +457,24 @@ button:hover{
     transition: 0.25s;
     cursor: pointer;
 }
+
+
+.form-group input[id = "password_recover"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #00FA9A;
+    padding: 10px 8px;
+    width: 225px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
 
 .form-group input[type = "submit"]:hover{
     background: @2ecc71;
