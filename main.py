@@ -228,7 +228,7 @@ def logout():
 
 
 
-@main.route('/password-recover', methods=['GET', 'POST'])
+@main.route('/password_recover', methods=['GET', 'POST'])
 def password_recover():
 
     global email_global
@@ -281,6 +281,7 @@ def password_retype():
 
 
     return render_template('password_retype.html', user=current_user)
+
 
 
 if __name__ == '__main__':
