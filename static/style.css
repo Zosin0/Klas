@@ -127,6 +127,8 @@ header{
 }
 
 
+
+
 @media screen and (max-width:1020px) {
   .menu-toggle-btn{
     display: block !important;
@@ -402,15 +404,19 @@ header{
 }
 
 .fundo4{
-      display: block;
-      height: 30vh;
-      align-items: center;
-      background: #000000;
+        padding: 60px;
+
+        border-radius: 5px;
+        background: black;
+        font-weight: 500;
+        text-align: center;
+        color:white;
+        grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
 .itens-footer{
     display: inline-flex;
     margin-top: 70px;
-    padding-left: 200px;
+    padding-left: center;
 }
 
 .texto-footer{
@@ -418,6 +424,7 @@ header{
     text-align: center;
     letter-spacing: 0.01em;
     color: #FFFFFF;
+
 }
 .klas-dev{
     font-family: 'Roboto';
@@ -436,13 +443,21 @@ header{
     margin-top: -12px;
 }
 .barra-em-baixo{
-    display: block;
-    width: 1050px;
-    justify-content: center;
-    align-items: center;
-    height: 0px;
-    border: 5px solid #FFFFFF;
-    margin-left: 125px;
+        padding: 5px;
+        border-radius: 1px;
+        background: #FFFFFF;
+        font-weight: 500;
+        text-align: center;
+        color:white;
+        width: 1000px;
+        margin-left: 400px;
+
+}
+
+@media (max-width:770px){
+    .barra-em-baixo{
+        padding: 20px;
+    }
 }
 /*CSS CURSOS*/
 .main-cursos{
@@ -674,6 +689,8 @@ button:hover{
     background: @2ecc71;
 }
 
+/*SIGN-UP*/
+
 .sign-up h2{
     color: white;
     text-transform: uppercase;
@@ -734,6 +751,7 @@ button:hover{
     }
 }
 
+/*------------------------------------*/
 
 .table-table-dark{
 
@@ -763,4 +781,109 @@ button:hover{
 html {
   scroll-behavior: smooth;
 }
+/*------------------------------------*/
+
+/*RECUPERAÇÃO DE SENHA*/
+
+
+.email-recover{
+    padding: 200px;
+    border-radius: 5px;
+    background: #191919;
+    font-weight: 500;
+    text-align: center;
+    color:white;
+    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+}
+
+.email-recover input[type = "email"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    border: 2px solid #663399;
+    padding: 14px 10px;
+    width: 300px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.email-recover input[id = "enviar"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #00FA9A;
+    padding: 10px 8px;
+    width: 225px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+@media (max-width:770px){
+    .email-recover{
+        padding: 20px;
+    }
+}
+
+.password-recover{
+    padding: 200px;
+    border-radius: 5px;
+    background: #191919;
+    font-weight: 500;
+    text-align: center;
+    color:white;
+    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+}
+
+
+.password-recover input[type = "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    border: 2px solid #663399;
+    padding: 14px 10px;
+    width: 300px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.password-recover input[id = "enviar"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #00FA9A;
+    padding: 10px 8px;
+    width: 225px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+@media (max-width:770px){
+    .password-recover{
+        padding: 20px;
+    }
+}
+
+
+
+
+
+
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/style.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -39,21 +39,31 @@
 
     {% with mensagens = get_flashed_messages(with_categories=true) %}
         {% if mensagens %}
+
             {% for category, mensagem in mensagens %}
 
                 {% if category == 'erro' %}
-                    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                    <div style="padding: 20px;" class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ mensagem }}
-                        <button type="button" class="close" data-dismiss="alert">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <a href="/registro" target="_blank">
+                                <label for="Registrar"></label>
+                                <input
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="Registrar"
+                                    name="Sign-up"
+                                    value = "X"
+                                />
+                            </a>
                         </button>
                     </div>
 
                 {% else %}
-                    <div class="alert alert-success alert-dismissable fade show" role="alert">
+                    <div style="padding: 20px;" class="alert-alert-success alert-dismissible fade show" role="alert">
                         {{ mensagem }}
-                        <button type="button" class="close" data-dismiss="alert">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <button aria-hidden="true" aria-label="Close">&times;</button>
                         </button>
                     </div>
                 {% endif %}
