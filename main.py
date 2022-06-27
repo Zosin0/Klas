@@ -30,8 +30,8 @@ def menu():
 @main.route('/times')
 @login_required
 def times():
-
-    sql = bd.SQL("root", "1234", "Klas")
+    # Consultando dados na tabela
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = "SELECT * FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
@@ -49,7 +49,7 @@ def times():
 @main.route('/plataformas')
 @login_required
 def plataformas():
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = sql.consultar(comando, [])
     dados = ''
@@ -69,7 +69,7 @@ def plataformas():
 @main.route('/linguagens')
 @login_required
 def linguagens():
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ''
@@ -95,27 +95,18 @@ def cursos():
 @main.route('/cursos_pagos')
 @login_required
 def cursos_pagos():
-    sql = bd.SQL("root", "1234", "Klas")
-    comando = 'SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas, L.dsc_path_imagem_linguagem FROM tbCursoPago C INNER JOIN tbPlataformas P ON P.idPlataformas = C.cod_plataforma INNER JOIN  linguagens L ON L.idLinguagem = C.cod_linguagem;'
+    sql = bd.SQL("root", "uniceub", "Klas")
+    comando = 'SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas FROM tbCursoPago C INNER JOIN tbPlataformas P ON P.idPlataformas = C.cod_plataforma;'
     cs = sql.consultar(comando, [])
     cursosp=''
-    for (idt, nome, desc, link, path, path2) in cs:
+    for (idt, nome, desc, link, path) in cs:
         cursosp += f'''
-                    <div class="texto-x-imagem">
-                    <div class="textos-cursop">
-                        <div class="nome-cursop"><a href="">
-                            <h1>{nome}</h1></a></div>
-                        <div class="desc-cursop"><h2>{desc}</h2> </div>
-                        <div class="link-cursop"><a href="{link}" target="_blank"><h3>CLIQUE AQUI PARA CONHECER O CURSO</h3></a></div>
-                    </div>
-                    <div class="imagens-cursop">
-                        <img style="height: 150px; widht: auto;"
-                             src="{path}"/>
-                        <img style="height: 150px; widht: auto;"
-                            src="{path2}"/>
-                    </div>
-                </div>
-            <div class="linha-baixo"></div>
+              <div class="curso-2">
+                <h1>{nome}</h1>
+                <h3>{desc}</h3>
+                <a target="_blank" href={link}><img src={path}/>  </a>
+            </div>
+        
         '''
 
     return render_template('cursos_pagos.html', cursosp=cursosp, user=current_user)
@@ -124,34 +115,28 @@ def cursos_pagos():
 @main.route('/cursos_gratis')
 @login_required
 def cursos_gratis():
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
     cs = sql.consultar(comando, [])
     cursosg = ''
 
     for (idt, nome, desc, link) in cs:
         cursosg += f'''
-       <div class="texto-imagem-cursog">
-            <div class="texto-cursog">
-                <div class="titulo-cursog"><a><h1>{nome}</h1></a></div>
-                <div class="desc-cursog"><h3>{desc}</h3></div>
-            </div>
-            <div class="imagens-cursog">
-                <div class="assista-cursog"><h3>ASSISTA AQUI:</h3></div>
-                <div class="espaço-cursog"><iframe
-                    width = "560"
-                    height = "315"
-                    src = "{link}"
-                    title = "YouTube video player"
-                    frameborder = "0"
-                    allow = "accelerometer; autoplay;
-                    clipboard - write;
-                    encrypted - media;
-                    gyroscope;
-                    picture - in -picture"
-                    allowfullscreen></iframe></div>
-            </div>
-
+        <div class ="curso-1">
+        <h1 style="text-align: justify; padding-bottom: 20px;"> {nome} </h1>
+        <h3 style="text-align: justify; padding-bottom: 20px;"> {desc} </h3>
+        <iframe
+        width = "560"
+        height = "315"
+        src = "{link}"
+        title = "YouTube video player"
+        frameborder = "0"
+        allow = "accelerometer; autoplay;
+        clipboard - write;
+        encrypted - media;
+        gyroscope;
+        picture - in -picture"
+        allowfullscreen></iframe>
         </div>
      '''
 
@@ -161,7 +146,7 @@ def cursos_gratis():
 
 @main.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('root', '1234', 'Klas')
+    sql = bd.SQL('root', 'uniceub', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -200,7 +185,7 @@ def registro():
 def login():
 
     if request.method == 'POST':
-        sql = bd.SQL('root', '1234', 'Klas')
+        sql = bd.SQL('root', 'uniceub', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
         user = User.query.filter_by(email=email).first()
