@@ -135,7 +135,7 @@ INSERT INTO tbCursoPago(nmeCursoPago, descCursoPago, link_curso_pago, cod_plataf
 "https://www.alura.com.br/cursos-online-programacao/linguagem-c", 9, 6),
 ("C# Completo - UDEMY", "Aprenda C# em um só curso, Algoritmos, Estrutura de Dados, Fundamentos, OO, Coleções, Lambdas, LINQ e vários recursos!",
 "https://www.udemy.com/course/curso-c-sharp/", 10, 5),
-("PHP - UDEMY", "Você vai desenvolver com uma das linguagens mais populares no mercado que evoluiu muito em todos os requisitos nos últimos anos. Use corretamente a orientação a objetos com o PHP. Aprenda a lidar com as coleções. Aproveite o Composer e muito mais!",
+("PHP - ALURA", "Você vai desenvolver com uma das linguagens mais populares no mercado que evoluiu muito em todos os requisitos nos últimos anos. Use corretamente a orientação a objetos com o PHP. Aprenda a lidar com as coleções. Aproveite o Composer e muito mais!",
 "https://www.alura.com.br/cursos-online-programacao/php", 9, 4);
 
 INSERT INTO tbCursoGratis(nmeCursoGratis, descCursoGratis, link_curso_gratis) VALUES
@@ -167,8 +167,12 @@ Se você quer aprender programação, quer se tornar um programador de qualidade
 "https://www.youtube.com/embed/videoseries?list=PL2Fdisxwzt_cOvOTUJhwEOxNV59wTs3ac");
 
 
-SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas FROM tbCursoPago C
+SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas, L.dsc_path_imagem_linguagem FROM tbCursoPago C
 INNER JOIN tbPlataformas P
-ON P.idPlataformas = C.cod_plataforma;
+ON P.idPlataformas = C.cod_plataforma
+INNER JOIN  linguagens L
+ON L.idLinguagem = C.cod_linguagem;
+
+
 
 

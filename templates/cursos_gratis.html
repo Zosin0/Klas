@@ -5,13 +5,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <div id="cursos-gratis">
-    </div>
-      <div id="static" class="ui-widget-content">
+    <style>
+        body {
+            background-color: #191919;
+        }
+    </style>
+
         {{ cursosg | safe }}
-      </div>
-
-
 
     <script type="text/javascript">
       $(".menu-toggle-btn").click(function(){
