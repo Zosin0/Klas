@@ -61,17 +61,26 @@ def times():
 def plataformas():
     sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from tbPlataformas;'
+    dados = ""
     cs = sql.consultar(comando, [])
-    dados = ''
-
     for (idt, nome, tipo, desc, link, path) in cs:
-        dados += f"<TR>\n"
-        dados += f"<TD>{nome}</TD>\n"
-        dados += f"<TD>{tipo}</TD>\n"
-        dados += f"<TD>{desc}</TD>\n"
-        dados += f"<TD><a target=_blank href={link}\n"
-        dados += f"<TD><IMG SRC={path} alt={nome}></TD></a>\n"
-        dados += "</TR>\n"
+        dados += f'''
+                            <div class="texto-x-imagem">
+                            <div class="textos-cursop">
+                                <div class="nome-cursop"><a href="">
+                                    <h1>{nome}</h1></a></div>
+                                <div class="desc-cursop"><h2>{desc}</h2> </div> <br/>
+                                <div class="link-cursop"><h3>{tipo}</h3></div>
+                            </div>
+                            <div class="imagens-cursop">
+                                <a href= "{link}">
+                                <img style="height: auto; widht: auto;"
+                                     src="{path}"/> </a>
+                            </div>
+                        </div>
+                    <div class="linha-baixo"></div>
+
+                            '''
 
     return render_template('plataformas.html', dados=dados, user=current_user)
 
