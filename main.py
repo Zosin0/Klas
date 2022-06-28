@@ -31,7 +31,7 @@ def menu():
 @login_required
 def times():
     # Consultando dados na tabela
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = "SELECT idAluno, nmeAluno, dsc_path_imagem_aluno, raAluno, descAluno FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
@@ -59,7 +59,7 @@ def times():
 @main.route('/plataformas')
 @login_required
 def plataformas():
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from tbPlataformas;'
     cs = sql.consultar(comando, [])
     dados = ''
@@ -79,7 +79,7 @@ def plataformas():
 @main.route('/linguagens')
 @login_required
 def linguagens():
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select * from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ''
@@ -105,7 +105,7 @@ def cursos():
 @main.route('/cursos_pagos')
 @login_required
 def cursos_pagos():
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas, L.dsc_path_imagem_linguagem FROM tbCursoPago C INNER JOIN tbPlataformas P ON P.idPlataformas = C.cod_plataforma INNER JOIN  linguagens L ON L.idLinguagem = C.cod_linguagem;'
     cs = sql.consultar(comando, [])
     cursosp=''
@@ -135,7 +135,7 @@ def cursos_pagos():
 @main.route('/cursos_gratis')
 @login_required
 def cursos_gratis():
-    sql = bd.SQL("root", "1234", "Klas")
+    sql = bd.SQL("root", "uniceub", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
     cs = sql.consultar(comando, [])
     cursosg = ''
@@ -170,7 +170,7 @@ def cursos_gratis():
 
 @main.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('root', '1234', 'Klas')
+    sql = bd.SQL('root', 'uniceub', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -198,8 +198,8 @@ def registro():
             novo_usuario = User(email=email, first_name=firstName, password=generate_password_hash(password1, method='sha256'))
             db.session.add(novo_usuario)
             db.session.commit()
-            flash('Conta criada com sucesso!', category='sucesso')
-            return redirect('/')
+            flash('Conta criada com sucesso!', category='contac')
+            return redirect('/login')
 
 
     return render_template('sign_up.html', user=current_user)
@@ -209,7 +209,7 @@ def registro():
 def login():
 
     if request.method == 'POST':
-        sql = bd.SQL('root', '1234', 'Klas')
+        sql = bd.SQL('root', 'uniceub', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
         user = User.query.filter_by(email=email).first()
@@ -221,10 +221,10 @@ def login():
                 return redirect('/')
 
             else:
-                flash('Email ou senha inválidos.', category='erro')
+                flash('Email ou senha inválidos.', category='emaili')
 
         else:
-            flash('Email ou senha inválidos.', category='erro')
+            flash('Email ou senha inválidos.', category='emaili')
 
     return render_template('login.html', user=current_user)
 
@@ -255,10 +255,10 @@ def password_recover():
             return redirect('/')
 
         else:
-            flash('Este email não está cadastrado no nosso sistema.', category='erro')
+            flash('Este email não está cadastrado no nosso sistema.', category='emailnc')
 
 
-    return render_template('password_recover.html', user=current_user)
+    return render_template('password-recover.html', user=current_user)
 
 
 
@@ -274,22 +274,22 @@ def password_retype():
             confirm_password = request.form.get('confirm-password')
 
             if len(new_password) < 8:
-                flash('A senha deve ter pelo menos 8 caracteres.', category='erro')
+                flash('A senha deve ter pelo menos 8 caracteres.', category='senhai')
 
             elif confirm_password != new_password:
-                flash('A senhas são diferentes.', category='erro')
+                flash('A senhas são diferentes.', category='senhai')
 
             else:
                 user.password = generate_password_hash(new_password, method='sha256')
                 db.session.commit()
-                flash('A senha foi alterada com sucesso!', category='sucesso')
+                flash('A senha foi alterada com sucesso!', category='senhas')
                 return redirect('/login')
 
     except NameError:
         return redirect('/password-recover')
 
 
-    return render_template('password_retype.html', user=current_user)
+    return render_template('password-retype.html', user=current_user)
 
 
 

@@ -43,10 +43,10 @@
             {% for category, mensagem in mensagens %}
 
                 {% if category == 'erro' %}
-                    <div style="padding: 20px;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div style="padding: 20px; color: white; text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ mensagem }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                            <a href="/registro" target="_blank">
+                            <a href="/registro">
                                 <label for="Registrar"></label>
                                 <input
                                     type="button"
@@ -59,11 +59,105 @@
                         </button>
                     </div>
 
-                {% else %}
-                    <div style="padding: 20px;" class="alert-alert-success alert-dismissible fade show" role="alert">
+                {% elif category == 'emaili' %}
+                    <div style="padding: 20px; color: white; text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ mensagem }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                            <button aria-hidden="true" aria-label="Close">&times;</button>
+                            <a href="/login">
+                                <label for="Email-Invalido"></label>
+                                <input
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="Email-Invalido"
+                                    name="Sign-up"
+                                    value = "X"
+                                />
+                            </a>
+                        </button>
+                    </div>
+
+                {% elif category == 'contac' %}
+                    <div style="padding: 20px; color: white; text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ mensagem }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <a href="/login">
+                                <label for="Conta-Criada"></label>
+                                <input
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="Conta-Criada"
+                                    name="Sign-up"
+                                    value = "X"
+                                />
+                            </a>
+                        </button>
+                    </div>
+
+                {% elif category == 'emailnc' %}
+                    <div style="padding: 20px; color: white; text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ mensagem }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <a href="/password-recover">
+                                <label for="Email-nao-Cadastrado"></label>
+                                <input
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="Email-nao-Cadastrado"
+                                    name="Sign-up"
+                                    value = "X"
+                                />
+                            </a>
+                        </button>
+                    </div>
+
+                {% elif category == 'senhai' %}
+                    <div style="padding: 20px; color: white; text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ mensagem }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <a href="/password-retype">
+                                <label for="Senha-Incorreta"></label>
+                                <input
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="Senha-Incorreta"
+                                    name="Sign-up"
+                                    value = "X"
+                                />
+                            </a>
+                        </button>
+                    </div>
+
+                {% elif category == 'senhas' %}
+                    <div style="padding: 20px; color: white; text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ mensagem }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <a href="/login">
+                                <label for="Senha-Sucesso"></label>
+                                <input
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="Senha-Sucesso"
+                                    name="Sign-up"
+                                    value = "X"
+                                />
+                            </a>
+                        </button>
+                    </div>
+
+                {% else %}
+                    <div style="padding: 20px; text-align: center;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ mensagem }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <a href="/">
+                                <label for="Sucesso"></label>
+                                <input
+                                    type="button"
+                                    class="btn btn-primary"
+                                    id="Sucesso"
+                                    name="Sign-up"
+                                    value = "X"
+                                />
+                            </a>
                         </button>
                     </div>
                 {% endif %}
