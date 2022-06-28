@@ -89,18 +89,30 @@ def plataformas():
 @login_required
 def linguagens():
     sql = bd.SQL("root", "uniceub", "Klas")
-    comando = 'select * from linguagens;'
+    comando = 'select idLinguagem, nmeLinguagem, dsc_path_imagem_linguagem, popularidadeLinguagem, salarioLinguagem, descLinguagem from linguagens;'
     cs = sql.consultar(comando, [])
-    infos = ''
+    infos = ""
 
-    for (idt, nome, pop, sal, desc, path) in cs:
-        infos += f"<TR>\n"
-        infos += f"<TD>{nome}</TD>\n"
-        infos += f"<TD>#{pop}</TD>\n"
-        infos += f"<TD>{sal}</TD>\n"
-        infos += f"<TD>{desc}</TD>\n"
-        infos += f"<TD><IMG SRC={path} alt={nome}></TD>\n"
-        infos += "</TR>\n"
+    for (idt, nome, path, pop, sal, desc) in cs:
+        infos += f'''
+       <div class="ling-all">
+            <div class="ling-texto-img">
+                <div>
+                    <h1 class="ling-titulo">{nome}</h1>
+                    <img class="ling-logo" src="{path}"/>
+                </div>
+            </div>
+            <div class="ling-texto">
+                    <h2 class="ling-pop">Popularidade no Mercado: {pop}</h2>
+                    <h2 class="ling-salario">
+                        Média de Salário no Mundo: {sal}
+                    </h2>
+                    <h3 class="ling-desc">
+                        {desc}
+                    </h3>
+            </div>
+        </div>
+        '''
 
     return render_template('linguagens.html', infos=infos, user=current_user)
 
