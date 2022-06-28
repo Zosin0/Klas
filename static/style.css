@@ -1,5 +1,5 @@
 *{
-  margin: auto;
+  margin: 0;
   padding: 0;
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
@@ -275,13 +275,8 @@ header{
 
 .texto{
   display: inline-block;
-  font-family: 'Bai Jamjuree';
-  padding: 120px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 38px;
-  color: black;
+  padding: 30px;
+  text-align: center;
 }
 
 .fundo2 {
@@ -402,18 +397,14 @@ header{
 
 .fundo4{
         padding: 60px;
-
-        border-radius: 5px;
         background: black;
         font-weight: 500;
         text-align: center;
-        color:white;
         grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
 .itens-footer{
     display: inline-flex;
-    margin-top: 70px;
-    padding-left: center;
+    margin-top: 30px;
 }
 
 .texto-footer{
@@ -447,8 +438,7 @@ header{
         text-align: center;
         color:white;
         width: 1000px;
-        margin-left: 400px;
-
+        margin: auto;
 }
 
 @media (max-width:770px){
@@ -675,7 +665,13 @@ button:hover{
 .form-group input[type = "submit"]:hover{
     background: @2ecc71;
 }
-
+/*  TIMES */
+.titulo-times{
+    margin-top: 5%;
+    text-align: center;
+    padding-bottom: 50px;
+}
+/**/
 /*SIGN-UP*/
 .sign-up h2{
     color: white;
@@ -766,8 +762,6 @@ html {
 /*------------------------------------*/
 
 /*RECUPERAÇÃO DE SENHA*/
-
-
 .email-recover{
     padding: 200px;
     border-radius: 5px;
