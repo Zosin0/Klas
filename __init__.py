@@ -14,7 +14,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'projetinho'
     app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
     app.config['UPLOAD_FOLDER'] = 'C:\\temp\\Klas\\Klas\\static\\imagens'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:uniceub@localhost/Klas'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/Klas'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465

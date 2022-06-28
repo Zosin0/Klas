@@ -8,57 +8,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Linguagens', 'Salário'],
-          ['Python', 56670],
-          ['C/C++',  58469],
-          ['JavaScript',  55690],
-          ['C#', 57433],
-          ['PHP', 64000],
-          ['Java', 55690]
-        ]);
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawBasic);
 
-        var options = {
-            title: '',
-            backgroundColor: '#affafe',
-            is3D: true,
-        };
+        function drawBasic() {
 
+          var data = google.visualization.arrayToDataTable([
+            ['Linguagens', 'Total',],
+            ['PHP', 64000],
+            ['C#', 58469],
+            ['Python', 56670],
+            ['Java/JavaScript', 55690],
+            ['C/C++', 55363]
+          ]);
 
+          var options = {
+            title: 'Linguagens que mais pagam',
+            chartArea: {width: '50%'},
+            hAxis: {
+              title: 'R$',
+              minValue: 0
+            },
+            vAxis: {
+              title: 'Linguagens'
+            },
+              backgroundColor: '#affafe',
+          };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d1'));
-        chart.draw(data, options);
-      }
+          var chart = new google.visualization.BarChart(document.getElementById('chart_div2'));
+
+          chart.draw(data, options);
+        }
 
     </script>
+    <script>
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawBasic);
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Linguagens', 'Mais populares'],
-          ['Python',     11],
-          ['C/C++',      2],
-          ['JavaScript',  2],
-          ['C#', 2],
-          ['PHP',    7],
-          ['Java', 10]
-        ]);
+        function drawBasic() {
 
-        var options = {
-            title: '',
-            backgroundColor: '#affafe',
-            is3D: true,
-        };
+          var data = google.visualization.arrayToDataTable([
+            ['Linguagens', 'Popularidade',],
+            ['Python',     11],
+            ['Java', 10],
+            ['PHP',    7],
+            ['C/C++',      2],
+            ['JavaScript',  2],
+            ['C#', 2]
+          ]);
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d2'));
-        chart.draw(data, options);
-      }
+          var options = {
+            title: 'Population of Largest U.S. Cities',
+            chartArea: {width: '50%'},
+            hAxis: {
+              title: 'Popularidade',
+              minValue: 0
+            },
+            vAxis: {
+              title: 'Linguagens'
+            },
+              backgroundColor: '#affafe',
+          };
+
+          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+        }
     </script>
 
 <!--começar aqui-->
@@ -96,11 +111,11 @@
 
             <div class="fundo1">
                 <div class="texto"><p class="texto-p5">Linguagens que mais pagam no mercado:</p>
-                    <div id="piechart_3d1" style="width: 500px; height: 400px;"></div>
+                    <div id="chart_div2" style="width: 500px; height: 400px;"></div>
                 </div>
 
-                <div class="texto"><p class="texto-p6">Linguagens mais fáceis de aprender:</p>
-                    <div id="piechart_3d2" style="width: 500px; height: 400px;"></div>
+                <div class="texto"><p class="texto-p6">Linguagens mais populares:</p>
+                    <div id="chart_div" style="width: 500px; height: 400px;"></div>
                 </div>
             </div>
 
