@@ -706,7 +706,48 @@ button:hover{
 
 }
 
-/**/
+/*CSS LINGUAGENS*/
+.ling-all{
+    display: flex;
+    align-items: left;
+    margin-top: 7%;
+}
+
+.ling-texto-img{
+    display: block;
+    margin-left: 10%;
+}
+.ling-titulo{
+    color: white;
+    text-align: center;
+
+}
+.ling-logo{
+
+}
+.ling-texto{
+    display: block;
+    color: white;
+    align-items: center;
+    padding-top: 5vh;
+}
+.ling-pop{
+    color: white;
+    text-align: center;
+
+}
+.ling-salario{
+    color: white;
+    text-align: center;
+}
+.ling-desc{
+    color: white;
+    text-align: justify;
+    padding-left: 20vw;
+    padding-top: 10vh;
+    width: 50%;
+}
+
 /*SIGN-UP*/
 .sign-up h2{
     color: white;
