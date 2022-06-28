@@ -4,9 +4,8 @@
 
 
 {% block content %}
-    <div id="time">
-        <h1 class="titulo-times">Aqui estão os integrantes da nossa equipe e suas respectivas funções:</h1>
-    </div>
+    <!--
+
       <div id="draggable" class="ui-widget-content">
         <table class="table">
             <tr>
@@ -15,9 +14,22 @@
               <th></th>>
               <th></th>
               </tr>
-              {{ imagens | safe }}
+
         </table>
       </div>
+      -->
+  <style>
+      body {
+          background-color: #191919;
+      }
+
+      </style>
+
+    <div id="time">
+        <h1 class="titulo-times">Aqui estão os integrantes da nossa equipe e suas respectivas funções:</h1>
+         {{ imagens | safe }}
+    </div>
+
 
 
     <script type="text/javascript">

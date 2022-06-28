@@ -666,11 +666,46 @@ button:hover{
     background: @2ecc71;
 }
 /*  TIMES */
+
 .titulo-times{
     margin-top: 5%;
     text-align: center;
+    padding-bottom: 15vh;
+    color: white;
+}
+.fotos-desc{
+    display: flex;
     padding-bottom: 50px;
 }
+.itens-3{
+    display: block;
+    justify-content: left;
+    margin-left: 5%;
+}
+.nome-aluno{
+    text-align: center;
+    font-size: 40px;
+    color: white;
+
+}
+.foto-aluno{
+
+}
+.ra-aluno{
+    text-align: center;
+    color: white;
+
+
+}
+.descricao-aluno{
+    width: 70%;
+    padding: 25vh;
+    text-align: justify;
+    font-size: 25px;
+    color: white;
+
+}
+
 /**/
 /*SIGN-UP*/
 .sign-up h2{

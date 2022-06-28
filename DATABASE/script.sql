@@ -67,15 +67,15 @@ CREATE TABLE tbCursoPago(
 
 -- INSERT ALUNOS (COMPLETO) --
 INSERT INTO GrupoKlas(nmeAluno, raAluno, descAluno, dsc_path_imagem_aluno) VALUES
-("Lucas Zoser Nunes Costa", "22105593", "Project Management: Apto a organizar o grupo dentro dos prazos, e ajudar em todas as etapas de códigos para que o projeto progrida e consiga ser entregue a tempo."
+("Lucas Zoser", "22105593", "Project Management: Apto a organizar o grupo dentro dos prazos, e ajudar em todas as etapas de códigos para que o projeto progrida e consiga ser entregue a tempo."
 , "/static/imagens/lucasz.png"),
-("Leonardo Benttes Almeida Placido dos Santos", "22103833", "Back-End Developer: Apto a entregar a main.py com todas as funcionalidades especificadas e ajudar todos os integrantes com o funcionamento do site"
+("Leonardo Benttes", "22103833", "Back-End Developer: Apto a entregar a main.py com todas as funcionalidades especificadas e ajudar todos os integrantes com o funcionamento do site"
 , "/static/imagens/leob.png"),
-("Leonardo Areias Rodovalho", "22101570", "Test Analyst DBA: Apto a separar os conteúdos do site, e popular as tabelas do banco de dados, fazendo assim as integrações entre linguagens da aplicação."
+("Leonardo Areias", "22101570", "Test Analyst DBA: Apto a separar os conteúdos do site, e popular as tabelas do banco de dados, fazendo assim as integrações entre linguagens da aplicação."
 , "/static/imagens/leos.png"),
-("Pedro Henrique Moreira da Silva", "22201914", "Front-End Analyst: Apto a auxiliar todo o grupo em todas partes do site, garantindo que ele tenha todas as funções/conteúdos que foram especificados."
+("Pedro Henrique Moreira", "22201914", "Front-End Analyst: Apto a auxiliar todo o grupo em todas partes do site, garantindo que ele tenha todas as funções/conteúdos que foram especificados."
 ,"/static/imagens/pedrom.png"),
-("Matheus Soares Accioly", "22908908", "Front-End Developer: Apto a dar vida ao esqueleto do projeto, tornar o site utilizável e agradável para o usuário final, entregar os códigos de HTML e CSS dentro do que foi especificado."
+("Matheus Soares", "22908908", "Front-End Developer: Apto a dar vida ao esqueleto do projeto, tornar o site utilizável e agradável para o usuário final, entregar os códigos de HTML e CSS dentro do que foi especificado."
 ,"/static/imagens/matheusa.png");
 
 
@@ -174,7 +174,7 @@ INNER JOIN  linguagens L
 ON L.idLinguagem = C.cod_linguagem;
 
 
-
+SELECT idAluno, nmeAluno, dsc_path_imagem_aluno, raAluno, descAluno FROM GrupoKlas;
 
 
 
