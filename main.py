@@ -31,7 +31,7 @@ def menu():
 @login_required
 def times():
     # Consultando dados na tabela
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = "SELECT idAluno, nmeAluno, dsc_path_imagem_aluno, raAluno, descAluno FROM GrupoKlas;"
     imagens = ""
     cs = sql.consultar(comando, [])
@@ -59,7 +59,7 @@ def times():
 @main.route('/plataformas')
 @login_required
 def plataformas():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select * from tbPlataformas;'
     dados = ""
     cs = sql.consultar(comando, [])
@@ -88,7 +88,7 @@ def plataformas():
 @main.route('/linguagens')
 @login_required
 def linguagens():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select idLinguagem, nmeLinguagem, dsc_path_imagem_linguagem, popularidadeLinguagem, salarioLinguagem, descLinguagem from linguagens;'
     cs = sql.consultar(comando, [])
     infos = ""
@@ -126,7 +126,7 @@ def cursos():
 @main.route('/cursos_pagos')
 @login_required
 def cursos_pagos():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas, L.dsc_path_imagem_linguagem FROM tbCursoPago C INNER JOIN tbPlataformas P ON P.idPlataformas = C.cod_plataforma INNER JOIN  linguagens L ON L.idLinguagem = C.cod_linguagem;'
     cs = sql.consultar(comando, [])
     cursosp=''
@@ -156,7 +156,7 @@ def cursos_pagos():
 @main.route('/cursos_gratis')
 @login_required
 def cursos_gratis():
-    sql = bd.SQL("root", "uniceub", "Klas")
+    sql = bd.SQL("root", "1234", "Klas")
     comando = 'select idCursoGratis, nmeCursoGratis, descCursoGratis, link_curso_Gratis from tbCursoGratis;'
     cs = sql.consultar(comando, [])
     cursosg = ''
@@ -191,7 +191,7 @@ def cursos_gratis():
 
 @main.route('/registro', methods=['GET', 'POST'])
 def registro():
-    sql = bd.SQL('root', 'uniceub', 'Klas')
+    sql = bd.SQL('root', '1234', 'Klas')
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
@@ -230,7 +230,7 @@ def registro():
 def login():
 
     if request.method == 'POST':
-        sql = bd.SQL('root', 'uniceub', 'Klas')
+        sql = bd.SQL('root', '1234', 'Klas')
         email = request.form.get('email')
         senha = request.form.get('password')
         user = User.query.filter_by(email=email).first()

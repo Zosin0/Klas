@@ -542,14 +542,16 @@ button:hover{
     text-align: center;
 }
 .desc-cursog{
-    width: 50%;
+    width: 90%;
     align-items: center;
     text-align: justify;
     padding: 10px;
+    margin-left: 5vw;
     text-indent: 1em;
 }
 .imagens-cursog{
     display: block;
+    margin-left: 30vw;
 }
 .assista-cursog{
     font-family: 'Bai Jamjuree';
@@ -557,12 +559,12 @@ button:hover{
     font-weight: 700;
     font-size: 25px;
     line-height: 50px;
-    text-align: center;
+    margin-right: 5vw;
     letter-spacing: -0.01em;
     color: #A3BAE1;
     text-shadow: 3px 1px 5px rgba(0, 0, 0, 0.65);
     transform: rotate(0.31deg);
-    padding-top: 10px;
+    padding-left: 15vw;
 }
 
 .espaço-cursog{
