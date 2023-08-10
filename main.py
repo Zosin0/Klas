@@ -126,7 +126,7 @@ def cursos_pagos():
     cs = sql.consultar(comando, [])
     cursosp=''
     for (idt, nome, desc, link, path, path2) in cs:
-        cursosp += f'''
+            cursosp += f'''
                     <div class="texto-x-imagem">
                     <div class="textos-cursop">
                         <div class="nome-cursop"><a href="">

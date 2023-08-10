@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a19717e-7454-4ef4-8ae4-3314479091ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Klas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Klas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cursos_pagos.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cursos_pagos.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +38,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/lucas/Desktop/Klas/Klas",
+    "last_opened_file_path": "C:/Users/lucas/Desktop/Repositórios/Studex-B",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -120,7 +117,10 @@
       <workItem from="1654868538930" duration="378000" />
       <workItem from="1654868977146" duration="2766000" />
       <workItem from="1655137155428" duration="2270000" />
-      <workItem from="1678367176277" duration="1869000" />
+      <workItem from="1678367176277" duration="2187000" />
+      <workItem from="1678378960514" duration="4094000" />
+      <workItem from="1679607258722" duration="163000" />
+      <workItem from="1679607445295" duration="27000" />
     </task>
     <servers />
   </component>
@@ -139,7 +139,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Klas$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1678368646310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Klas$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1679607312920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Klas$Flask____init___py_.coverage" NAME="Flask (__init__.py) Coverage Results" MODIFIED="1678367594186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Klas$Klas.coverage" NAME="Klas Coverage Results" MODIFIED="1678367380182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>

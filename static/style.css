@@ -1,181 +1,181 @@
 *{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
+margin: 0;
+padding: 0;
+text-decoration: none;
+font-family: 'Open Sans', sans-serif;
 
 }
 body{
-  background-color: white;
+background-color: white;
 }
 header{
-  height: 90px;
-  background: black;
+height: 90px;
+background: black;
 
-  grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
 
 @media (max-width:770px){
-    .header{
-        padding: 20px;
-    }
+  .header{
+      padding: 20px;
+  }
 }
 
 @media (max-width:770px){
-    .inner-width{
-        padding: 20px;
-    }
+  .inner-width{
+      padding: 20px;
+  }
 }
 
 .inner-width{
-  max-width: 1000px;
-  padding: 0 10px;
-  margin: auto;
+max-width: 1000px;
+padding: 0 10px;
+margin: auto;
 }
 
 .logo{
-  color: white;
-  float: left;
-  padding: 25px 0;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 30px;
-  background-image: linear-gradient(
-    -225deg,
-    #00BFFF 0%,
-    #44107a 29%,
-    #00FA9A 67%,
-    #C71585 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-      font-size: 30px;
-  }
+color: white;
+float: left;
+padding: 25px 0;
+font-family: 'Open Sans', sans-serif;
+font-size: 30px;
+background-image: linear-gradient(
+  -225deg,
+  #00BFFF 0%,
+  #44107a 29%,
+  #00FA9A 67%,
+  #C71585 100%
+);
+background-size: auto auto;
+background-clip: border-box;
+background-size: 200% auto;
+color: #fff;
+background-clip: text;
+text-fill-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: textclip 2s linear infinite;
+display: inline-block;
+    font-size: 30px;
+}
 
 @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+to {
+  background-position: 200% center;
+}
 }
 
 .logo img{
-  height: 80px;
+height: 80px;
 }
 
 .navigation-menu{
-  float: right;
-  display: flex;
-  align-items: center;
-  min-height: 90px;
-  font-family: 'Open Sans', sans-serif;
+float: right;
+display: flex;
+align-items: center;
+min-height: 90px;
+font-family: 'Open Sans', sans-serif;
 }
 
 .navigation-menu a{
-  margin-left: 10px;
-  color: #ddd;
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 12px 20px;
-  border-radius: 4px;
-  transition: .3s linear;
+margin-left: 10px;
+color: #ddd;
+text-transform: uppercase;
+font-size: 14px;
+padding: 12px 20px;
+border-radius: 4px;
+transition: .3s linear;
 }
 
 .navigation-menu a:hover{
-  background: #fff;
-  color: black;
-  transform: scale(1.1);
+background: #fff;
+color: black;
+transform: scale(1.1);
 }
 
 .navigation-menu i{
-  margin-right: 8px;
-  font-size: 16px;
+margin-right: 8px;
+font-size: 16px;
 }
 
 .home{
-  color: #ff6b6b;
+color: #ff6b6b;
 }
 
 .about{
-  color: #0abde3;
+color: #0abde3;
 }
 
 .works{
-  color: #feca57;
+color: #feca57;
 }
 
 .team{
-  color: #5f27cd;
+color: #5f27cd;
 }
 
 .contact{
-  color: #1dd1a1;
+color: #1dd1a1;
 }
 
 .menu-toggle-btn{
-  float: right;
-  height: 90px;
-  line-height: 90px !important;
-  color: #fff;
-  font-size: 26px;
-  display: none !important;
-  cursor: pointer;
+float: right;
+height: 90px;
+line-height: 90px !important;
+color: #fff;
+font-size: 26px;
+display: none !important;
+cursor: pointer;
 }
 
 
 
 
 @media screen and (max-width:1020px) {
-  .menu-toggle-btn{
-    display: block !important;
-  }
+.menu-toggle-btn{
+  display: block !important;
+}
 
-  .navigation-menu{
-    position: fixed;
-    width: 100%;
-    max-width: 400px;
-    background: #172b4d;
-    top: 90px;
-    right: 0;
-    display: none;
-    padding: 20px 40px;
-    box-sizing: border-box;
-  }
+.navigation-menu{
+  position: fixed;
+  width: 100%;
+  max-width: 400px;
+  background: #172b4d;
+  top: 90px;
+  right: 0;
+  display: none;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
 
+.navigation-menu::before{
+  content: "";
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #172b4d;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+}
+@media (max-width:770px){
   .navigation-menu::before{
-    content: "";
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #172b4d;
-    position: absolute;
-    top: -10px;
-    right: 10px;
+      padding: 20px;
   }
-@media (max-width:770px){
-    .navigation-menu::before{
-        padding: 20px;
-    }
 }
 @media (max-width:770px){
-    .navigation-menu a{
-        padding: 20px;
-    }
-}
-
   .navigation-menu a{
-    display: block;
-    margin: 10px 0;
+      padding: 20px;
   }
+}
 
-  .navigation-menu.active{
-    display: block;
-  }
+.navigation-menu a{
+  display: block;
+  margin: 10px 0;
+}
+
+.navigation-menu.active{
+  display: block;
+}
 }
 
 
@@ -183,285 +183,281 @@ header{
 
 
 .fundo0{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
 }
 
 
 .fundo-home{
-  display:block;
-  padding: 30px;
+display:block;
+padding: 30px;
 }
 .texto-descubra{
-  font-family: 'Bai Jamjuree';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 70px;
-  line-height: 70px;
-  color: #222223;
+font-family: 'Bai Jamjuree';
+font-style: normal;
+font-weight: 700;
+font-size: 70px;
+line-height: 70px;
+color: #222223;
 
 }
 .texto-melhores{
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 60px;
-  letter-spacing: 0.01em;
-  color: #535354;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 60px;
+letter-spacing: 0.01em;
+color: #535354;
 }
 .elipse{
-  width: 239px;
-  height: 50px;
-  background: #222223;
-  box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
+width: 239px;
+height: 50px;
+background: #222223;
+box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
 }
 
 .botao-saiba{
-  width: 239px;
-  height: 50px;
-  color: white;
-  background: #222223;
-  box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
+width: 239px;
+height: 50px;
+color: white;
+background: #222223;
+box-shadow: 0px 10px 30px rgba(206, 206, 206, 0.6);
 }
 
 
 .cursos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px;
-  margin: auto;
-  padding-bottom: 80px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding-top: 80px;
+margin: auto;
+padding-bottom: 80px;
 }
 
 
 .texto-cursos{
-  display: block;
-  align-content: center;
-  margin: auto;
+display: block;
+align-content: center;
+margin: auto;
 }
 
 .texto-cursos > img{
-  width: 130px;
-  height: 130px;
+width: 130px;
+height: 130px;
 }
 
 @media screen and (max-width:876px) {
-  .fundo0 {
-    display: block;
-  }
-  .texto-descubra {
-     font-size: 30px;
-  }
+.fundo0 {
+  display: block;
+}
+.texto-descubra {
+    font-size: 30px;
+}
 }
 
 .fundo1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background: rgba( 26, 240, 253, 0.35 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur(10.5px);
-  -webkit-backdrop-filter: blur(10.5px);
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+display: flex;
+justify-content: center;
+align-items: center;
+height: 70vh;
+padding-top: 40px;
+padding-bottom: 40px;
+background: rgba( 26, 240, 253, 0.35 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur(10.5px);
+-webkit-backdrop-filter: blur(10.5px);
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .texto{
-  display: inline-block;
-  padding: 30px;
-  text-align: center;
+display: inline-block;
+padding: 30px;
+text-align: center;
 }
 
 .fundo2 {
-    display: flex;
-    justify-content: center;
-    height: 50vh;
-    width: 100%;
-    padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  width: 100%;
+  padding-top: 20px;
 
 }
 
 .texto1{
-    margin-top: auto;
-    text-align: center;
-    font-style: normal;
+  margin-top: auto;
+  text-align: center;
+  font-style: normal;
 
 }
 .texto-sobre{
-  margin-top: auto;
-  font-family: 'Bai Jamjuree';
-  font-weight: 700;
-  font-size: 100px;
-  line-height: 80px;
-  letter-spacing: 0.01em;
-  color: #0D1111;
-  padding-bottom: 42px;
+margin-top: auto;
+font-family: 'Bai Jamjuree';
+font-weight: 700;
+font-size: 100px;
+line-height: 80px;
+letter-spacing: 0.01em;
+color: #0D1111;
+padding-bottom: 42px;
 }
 .texto-sub-sobre{
-  font-family: 'Roboto';
-  font-weight: 400;
-  max-width: 773px;
-  font-size: 30px;
-  line-height: 28px;
-  color: #767E7E;
+font-family: 'Roboto';
+font-weight: 400;
+max-width: 773px;
+font-size: 30px;
+line-height: 28px;
+color: #767E7E;
 }
 .sobre{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding-top: 20px;
+padding-bottom: 50px;
 }
 .conteudo-sobre{
-  display: block;
-  margin: auto;
+display: block;
+margin: auto;
 
 }
 .imagens-sobre{
-  padding: 5px;
-  background: rgba(146, 195, 222, 0.9);
-  box-shadow: 5px 5px 10px black;
-  max-width: 150px;
-  max-height: 150px;
+padding: 5px;
+background: rgba(146, 195, 222, 0.9);
+box-shadow: 5px 5px 10px black;
+max-width: 150px;
+max-height: 150px;
 }
 
 .fundo3{
 
-    height: 60vh;
-    width: 100%;
-    padding-top: 40px;
-    background-color: #41B3F4;
+  height: 60vh;
+  width: 100%;
+  padding-top: 40px;
+  background-color: #41B3F4;
 }
 .texto-div3{
-    display: inline-flex;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 27px;
-    letter-spacing: 0.01em;
-    color: #414449;
+  display: inline-flex;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #414449;
 }
 .botoes-azuis{
-    display: block;
-    padding-bottom: 50px;
+  display: block;
+  padding-bottom: 50px;
 }
 .texto-registre{
-    margin-top: 20px;
-    margin-left: 212px;
+  margin-top: 20px;
+  margin-left: 212px;
 }
 .texto-login{
-    margin-top: 20px;
-    margin-left: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 .ret{
-    width: 8px;
-    height: 133px;
-    margin-top: 20px;
-    margin-left: 20px;
-    background-color: #718176;
+  width: 8px;
+  height: 133px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: #718176;
 }
 .botoes{
-    display:block;
+  display:block;
 }
 .botao-reg{
-    display: block;
-    margin-top: 30px;
-    margin-left: 428px;
-    width: 240px;
-    height: 60px;
-    color: white;
-    background: #1400FF;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+  display: block;
+  margin-top: 30px;
+  margin-left: 428px;
+  width: 240px;
+  height: 60px;
+  color: white;
+  background: #1400FF;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 .botao-log{
-    margin-top: 20px;
-    margin-left: 428px;
-    width: 240px;
-    height: 60px;
-    color: white;
-    background: #1400FF;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+  margin-top: 20px;
+  margin-left: 428px;
+  width: 240px;
+  height: 60px;
+  color: white;
+  background: #1400FF;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 .fundo4{
-        padding: 60px;
-        background: black;
-        font-weight: 500;
-        text-align: center;
-        grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+      padding: 60px;
+      background: black;
+      font-weight: 500;
+      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
 .itens-footer{
-    display: inline-flex;
-    margin-top: 30px;
+  display: inline-flex;
+  margin-top: 30px;
 }
 
 .texto-footer{
-    margin-left: 50px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #FFFFFF;
+  margin-left: 50px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
 
 }
 .klas-dev{
-    font-family: 'Roboto';
-    margin-left: 50px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 29px;
-    color: #FFFFFF;
-    margin-top: 0px;
+  font-family: 'Roboto';
+  margin-left: 50px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29px;
+  color: #FFFFFF;
+  margin-top: 0px;
 }
 .logo-ceub{
-    margin-left: 50px;
-    width: auto;
-    height: 65px;
-    margin-top: -12px;
+  margin-left: 50px;
+  width: auto;
+  height: 65px;
+  margin-top: -12px;
 }
 .barra-em-baixo{
-        padding: 5px;
-        border-radius: 1px;
-        background: #FFFFFF;
-        font-weight: 500;
-        text-align: center;
-        color:white;
-        width: 1000px;
-        margin: auto;
+  padding: 5px;
+  border-radius: 1px;
+  background: #FFFFFF;
+  font-weight: 500;
+  text-align: center;
+  color:white;
+  width: 1000px;
+  margin: auto;
 }
 
 @media (max-width:770px){
-    .barra-em-baixo{
-        padding: 20px;
-    }
+  .barra-em-baixo{
+      padding: 20px;
+  }
 }
-/*CSS CURSOS*/
+/*CSS CURSOS*/  
 .main-cursos{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-
+  width: 100%;
+  padding-top: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.texto-abertura{
-    display: flex;
-    width: 100%;
-    margin-right: 42%;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    padding-top: 5%;
-
+.texto-abertura-cursos{
+  color: white;
+  width: 30%;
+  text-align: justify;
 }
 
 
@@ -486,486 +482,464 @@ header{
   transition: transform 200ms ease-in-out;
 }
 button:hover{
-  transform: scale(1.05);
+transform: scale(1.05);
 }
 /* CSS CURSOS PAGOS*/
 
 /*CURSOS-PAGOS*/
 .texto-x-imagem{
-    display: flex;
-    padding-right: 40px;
-    padding-bottom: 200px;
-    margin-top: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 40px;
+  padding-bottom: 200px;
+  margin-top: 6%;
 }
 .textos-cursop{
-    display: block;
-    color: white;
-    padding: 50px;
+  display: block;
+  color: white;
+  padding: 50px;
 }
 .nome-cursop{
-    font-size: 22px;
-    padding-bottom: 25px;
+  font-size: 22px;
+  padding-bottom: 25px;
 }
 .desc-cursop{
-    padding-bottom: 15px;
-    width: 600px;
-    margin-left: 1px;
+  padding-bottom: 15px;
+  width: 600px;
+  margin-left: 1px;
 }
 .link-cursop{
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .imagens-cursop{
-    display: block;
-    height: 50px;
-    width: auto;
-    padding-left: 150px;
-    margin-top: 50px;
+  display: block;
+  height: 50px;
+  width: auto;
+  padding-left: 150px;
+  margin-top: 50px;
 }
 .linha-baixo{
-    display: block;
-    width: 90%;
-    justify-content: center;
-    height: 0px;
-    margin-left: 50px;
-    border: 5px solid #FFFFFF;
+  display: block;
+  width: 90%;
+  justify-content: center;
+  height: 0px;
+  margin-left: 50px;
+  border: 5px solid #FFFFFF;
 }
 
 /*CURSOS GRATIS*/
 .texto-imagem-cursog{
-    display: block;
-    justify-content: center;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
 }
 .texto-cursog{
-    display: block;
-    color: white;
-    padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding-bottom: 30px;
 }
 .titulo-cursog{
-    font-size: 25px;
-    padding-bottom: 20px;
-    text-align: center;
+  text-align: center;
 }
 .desc-cursog{
-    width: 90%;
-    align-items: center;
-    text-align: justify;
-    padding: 10px;
-    margin-left: 5vw;
-    text-indent: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  text-align: justify;
+  text-indent: 1em;
 }
 .imagens-cursog{
-    display: block;
-    margin-left: 30vw;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
 }
 .assista-cursog{
-    font-family: 'Bai Jamjuree';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 50px;
-    margin-left: 18%;
-    letter-spacing: -0.01em;
-    color: #A3BAE1;
-    text-shadow: 3px 1px 5px rgba(0, 0, 0, 0.65);
-    transform: rotate(0.31deg);
+  font-family: 'Bai Jamjuree';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 50px;
+  letter-spacing: -0.01em;
+  color: #A3BAE1;
+  text-shadow: 3px 1px 5px rgba(0, 0, 0, 0.65);
+  transform: rotate(0.31deg);
 }
 
 .espaço-cursog{
-      background: rgba(146, 195, 222, 0.9);
-      box-shadow: 5px 5px 10px black;
-      width: 579px;
-      height: 278px;
-      padding-bottom: 50px;
-      text-align: center;
+    background: rgba(146, 195, 222, 0.9);
+    box-shadow: 5px 5px 10px black;
+    width: 579px;
+    height: 278px;
+    padding-bottom: 50px;
+    text-align: center;
 }
+
 /*LOGIN*/
 .form-group h3{
-    color: white;
-    text-transform: uppercase;
-    font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
 
 }
 .form-group{
-    padding: 200px;
-    border-radius: 5px;
-    background: #191919;
-    font-weight: 500;
-    text-align: center;
-    color:white;
-    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+  padding: 200px;
+  border-radius: 5px;
+  background: #191919;
+  font-weight: 500;
+  text-align: center;
+  color:white;
+  grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 
 }
 
 @media (max-width:770px){
-    .form-group{
-        padding: 20px;
-    }
+  .form-group{
+      padding: 20px;
+  }
 }
 .form-group input[type = "email"], .form-group input[type= "password"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 40px auto;
-    text-align: center;
-    border: 2px solid #663399;
-    padding: 14px 10px;
-    width: 300px;
-    outline: none;
-    color: white;
-    font-weight: 500;
-    border-radius: 50px;
-    transition: 0.25s;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+  border: 2px solid #663399;
+  padding: 14px 10px;
+  width: 300px;
+  outline: none;
+  color: white;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: 0.25s;
 }
 .form-group input[type = "email"]:focus, .form-group input[type= "password"]:focus{
-    width: 400px;
-    border-color: #663399;
+  width: 400px;
+  border-color: #663399;
 
 }
 .form-group input[id = "login"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid #00FA9A;
-    padding: 10px 8px;
-    width: 225px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #00FA9A;
+  padding: 10px 8px;
+  width: 225px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 .form-group input[id = "Registrar"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid #00FA9A;
-    padding: 10px 8px;
-    width: 225px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #00FA9A;
+  padding: 10px 8px;
+  width: 225px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 .form-group input[id = "password_recover"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid #00FA9A;
-    padding: 10px 8px;
-    width: 225px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #00FA9A;
+  padding: 10px 8px;
+  width: 225px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 .form-group input[type = "submit"]:hover{
-    background: @2ecc71;
+  background: black;
 }
 /*  TIMES */
 
 .titulo-times{
-    margin-top: 5%;
-    text-align: center;
-    padding-bottom: 15vh;
-    color: white;
+  margin-top: 5%;
+  text-align: center;
+  padding-bottom: 11vh;
+  color: white;
 }
 .fotos-desc{
-    display: flex;
-    padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
 }
 .itens-3{
-    display: block;
-    justify-content: left;
-    margin-left: 5%;
+  display: block;
+  justify-content: left;
+  margin-left: 5%;
 }
 .nome-aluno{
-    text-align: center;
-    font-size: 40px;
-    color: white;
+  text-align: center;
+  font-size: 40px;
+  color: white;
 
 }
 .foto-aluno{
 
 }
 .ra-aluno{
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 
 
 }
 .descricao-aluno{
-    width: 70%;
-    padding: 25vh;
-    text-align: justify;
-    font-size: 25px;
-    color: white;
+  width: 70%;
+  padding: 25vh;
+  text-align: justify;
+  font-size: 25px;
+  color: white;
 
 }
 
 /*CSS LINGUAGENS*/
 .ling-all{
-    display: flex;
-    align-items: left;
-    margin-top: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
 }
 
 .ling-texto-img{
-    display: block;
-    margin-left: 10%;
+  display: block;
+  margin-left: 10%;
 }
 .ling-titulo{
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 
 }
-.ling-logo{
 
-}
 .ling-texto{
-    display: block;
-    color: white;
-    align-items: center;
-    padding-top: 5vh;
+  display: block;
+  color: white;
+  align-items: center;
+
 }
 .ling-pop{
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 
 }
 .ling-salario{
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 .ling-desc{
-    color: white;
-    text-align: justify;
-    padding-left: 20vw;
-    padding-top: 10vh;
-    width: 50%;
+  color: white;
+  text-align: justify;
+  padding-left: 20vw;
+  padding-top: 4vh;
+  
+  width: 50%;
 }
 
 /*SIGN-UP*/
 .sign-up h2{
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 .sign-up{
-    padding: 200px;
-    border-radius: 5px;
-    background: #191919;
-    font-weight: 500;
-    text-align: center;
-    color:white;
-    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+  padding: 200px;
+  border-radius: 5px;
+  background: #191919;
+  font-weight: 500;
+  text-align: center;
+  color:white;
+  grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
 .sign-up input[type = "email"], .sign-up input[id= "firstName"], .sign-up input[id= "password1"], .sign-up input[id= "password2"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #663399;
-    padding: 14px 10px;
-    width: 300px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #663399;
+  padding: 14px 10px;
+  width: 300px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
 }
 .sign-up input[type = "email"]:focus, .sign-up input[id= "firstName"]:focus, .sign-up input[id= "password1"]:focus, .sign-up input[id= "password2"]:focus{
-    width: 400px;
-    border-color: #663399;
+  width: 400px;
+  border-color: #663399;
 
 }
 .sign-up input[id = "Enviar"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid #00FA9A;
-    padding: 10px 8px;
-    width: 225px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #00FA9A;
+  padding: 10px 8px;
+  width: 225px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 
 @media (max-width:770px){
-    .sign-up{
-        padding: 20px;
-    }
+  .sign-up{
+      padding: 20px;
+  }
 }
 
 /*------------------------------------*/
 
 .table-table-dark{
 
-    position: absolute;
-    right: 10%;
-    left: 10%;
-    background: #191919;
-    font-weight: 500;
-    text-align: center;
-    color:white;
-    }
+  position: absolute;
+  right: 10%;
+  left: 10%;
+  background: #191919;
+  font-weight: 500;
+  text-align: center;
+  color:white;
+  }
 
 .curso-1{
-    display: block;
-    margin: auto;
-    width: 50%;
-    padding-bottom: 50px;
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-bottom: 50px;
 
 }
 .curso-2{
-    display: block;
-    margin: auto;
-    width: 50%;
-    padding-bottom: 50px;
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-bottom: 50px;
 
 }
 html {
-  scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 /*------------------------------------*/
 
 /*RECUPERAÇÃO DE SENHA*/
 .email-recover{
-    padding: 200px;
-    border-radius: 5px;
-    background: #191919;
-    font-weight: 500;
-    text-align: center;
-    color:white;
-    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+  padding: 200px;
+  border-radius: 5px;
+  background: #191919;
+  font-weight: 500;
+  text-align: center;
+  color:white;
+  grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
 
 .email-recover input[type = "email"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 30px auto;
-    text-align: center;
-    border: 2px solid #663399;
-    padding: 14px 10px;
-    width: 300px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+  border: 2px solid #663399;
+  padding: 14px 10px;
+  width: 300px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
 }
 
 .email-recover input[id = "enviar"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid #00FA9A;
-    padding: 10px 8px;
-    width: 225px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #00FA9A;
+  padding: 10px 8px;
+  width: 225px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 @media (max-width:770px){
-    .email-recover{
-        padding: 20px;
-    }
+  .email-recover{
+      padding: 20px;
+  }
 }
 
 .password-recover{
-    padding: 200px;
-    border-radius: 5px;
-    background: #191919;
-    font-weight: 500;
-    text-align: center;
-    color:white;
-    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+  padding: 200px;
+  border-radius: 5px;
+  background: #191919;
+  font-weight: 500;
+  text-align: center;
+  color:white;
+  grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
 }
 
 
 .password-recover input[type = "password"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 30px auto;
-    text-align: center;
-    border: 2px solid #663399;
-    padding: 14px 10px;
-    width: 300px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+  border: 2px solid #663399;
+  padding: 14px 10px;
+  width: 300px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
 }
 
 .password-recover input[id = "enviar"]{
-    border: 0;
-    background: none;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid #00FA9A;
-    padding: 10px 8px;
-    width: 225px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #00FA9A;
+  padding: 10px 8px;
+  width: 225px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 @media (max-width:770px){
-    .password-recover{
-        padding: 20px;
-    }
+  .password-recover{
+      padding: 20px;
+  }
 }
 /*------------------------------------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
