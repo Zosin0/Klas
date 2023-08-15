@@ -14,7 +14,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'projetinho'
     app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
     app.config['UPLOAD_FOLDER'] = 'C:\\temp\\Klas\\Klas\\static\\imagens'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/Klas'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://net:inetinet2323@localhost/Klas'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
@@ -29,14 +29,12 @@ def create_app():
     with app.app_context():
         db.create_all()
 
-    from main import main
+    from main import bp
 
-    app.register_blueprint(main, url_prefix='/')
+    app.register_blueprint(bp, url_prefix='/')
 
 
     from classes import User
-
-
 
 
     login_manager = LoginManager()
