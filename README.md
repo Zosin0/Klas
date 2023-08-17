@@ -1,7 +1,7 @@
 # Klas
 Um site que te mantém atualizado sobre cursos na área de tecnologia e ao mesmo tempo te auxilia a estudar programação de forma mais prática.
 
-Caso queira dar uma olhada na aplicação, <a href="https://klas.zoser.com.br/" target="_blank">acesse esse link</a> <br><br>
+Caso queira dar uma olhada na aplicação, <a href="https://klas.zoser.com.br/" target="_blank">acesse esse link</a>. <br><br>
 Caso queira rodar localmente, deve-se criar a ajustar os parâmetros de acordo com sua conexão, criar a DATABASE 'Klas' e popular as tabelas, tudo isso pode ser feito através do script localizado em '/DATABASE'.
 
 Depois, instale as dependências do Python:
