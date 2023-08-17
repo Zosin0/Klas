@@ -11,18 +11,18 @@ from flask_mail import Message
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-bp = Blueprint('main', __name__)
+main = Blueprint('main', __name__)
 app = create_app()
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@bp.route('/')
+@app.route('/')
 def menu():
     return render_template('home.html', user=current_user)
 
-@bp.route('/times')
+@app.route('/times')
 @login_required
 def times():
     # Consultando dados na tabela
@@ -51,11 +51,11 @@ def times():
     return render_template('times.html', imagens=imagens, headings=headings, user=current_user)
 
 
-@bp.route('/plataformas')
+@app.route('/plataformas')
 @login_required
 def plataformas():
     sql = bd.SQL("net", "inetinet2323", "Klas")
-    comando = 'select * from tbPlataformas;'
+    comando = 'select * from tapplataformas;'
     dados = ""
     cs = sql.consultar(comando, [])
     for (idt, nome, tipo, desc, link, path) in cs:
@@ -80,7 +80,7 @@ def plataformas():
     return render_template('plataformas.html', dados=dados, user=current_user)
 
 
-@bp.route('/linguagens')
+@app.route('/linguagens')
 @login_required
 def linguagens():
     sql = bd.SQL("net", "inetinet2323", "Klas")
@@ -112,17 +112,17 @@ def linguagens():
     return render_template('linguagens.html', infos=infos, user=current_user)
 
 
-@bp.route('/cursos')
+@app.route('/cursos')
 @login_required
 def cursos():
     return render_template('cursos.html', cursos=cursos, user=current_user)
 
 
-@bp.route('/cursos_pagos')
+@app.route('/cursos_pagos')
 @login_required
 def cursos_pagos():
     sql = bd.SQL("net", "inetinet2323", "Klas")
-    comando = 'SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas, L.dsc_path_imagem_linguagem FROM tbCursoPago C INNER JOIN tbPlataformas P ON P.idPlataformas = C.cod_plataforma INNER JOIN  linguagens L ON L.idLinguagem = C.cod_linguagem;'
+    comando = 'SELECT C.idCursoPago, C.nmeCursoPago, C.descCursoPago, C.link_curso_pago, P.dsc_path_imagem_plataformas, L.dsc_path_imagem_linguagem FROM tbCursoPago C INNER JOIN tapplataformas P ON P.idPlataformas = C.cod_plataforma INNER JOIN  linguagens L ON L.idLinguagem = C.cod_linguagem;'
     cs = sql.consultar(comando, [])
     cursosp=''
     for (idt, nome, desc, link, path, path2) in cs:
@@ -148,7 +148,7 @@ def cursos_pagos():
     return render_template('cursos_pagos.html', cursosp=cursosp, user=current_user)
 
 
-@bp.route('/cursos_gratis')
+@app.route('/cursos_gratis')
 @login_required
 def cursos_gratis():
     sql = bd.SQL("net", "inetinet2323", "Klas")
@@ -184,7 +184,7 @@ def cursos_gratis():
     return render_template('cursos_gratis.html', cursosg=cursosg, user=current_user)
 
 
-@bp.route('/registro', methods=['GET', 'POST'])
+@app.route('/registro', methods=['GET', 'POST'])
 def registro():
     sql = bd.SQL('net', 'inetinet2323', 'Klas')
     if request.method == 'POST':
@@ -221,7 +221,7 @@ def registro():
     return render_template('sign_up.html', user=current_user)
 
 
-@bp.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         sql = bd.SQL('net', 'inetinet2323', 'Klas')
@@ -244,7 +244,7 @@ def login():
     return render_template('login.html', user=current_user)
 
 
-@bp.route('/logout')
+@app.route('/logout')
 @login_required
 def logout():
     logout_user()
@@ -252,7 +252,7 @@ def logout():
 
 
 
-@bp.route('/password-recover', methods=['GET', 'POST'])
+@app.route('/password-recover', methods=['GET', 'POST'])
 def password_recover():
 
     global email_global
@@ -263,7 +263,7 @@ def password_recover():
 
         if user:
             msg = Message('Klas: Redefinição de senha.', sender='projetoceub@gmail.com', recipients=[email_global])
-            link = url_for('bp.password_retype', _external=True)
+            link = url_for('app.password_retype', _external=True)
             msg.body = f'Siga o link para a redefinição da senha. {link}'
             mail.send(msg)
             flash('Email Enviado com sucesso!', category='sucesso')
@@ -277,7 +277,7 @@ def password_recover():
 
 
 
-@bp.route('/password-retype', methods=['GET', 'POST'])
+@app.route('/password-retype', methods=['GET', 'POST'])
 def password_retype():
 
     try:
